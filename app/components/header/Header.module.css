@@ -52,3 +52,51 @@
     transition: color 0.3s ease;
   }
   
+  @media screen and (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      padding: 10px 0;
+    }
+    
+    .logocontainer {
+      margin-left: 10px;
+    }
+
+    .menu {
+      margin-right: 10px;
+    }
+
+    .menu a {
+      font-size: 0.95em;
+    }
+
+    .menu li {
+      margin-right: 10px;
+      font-size: 0.90em;
+    }
+
+    .menu ul {
+      margin-right: 10px;
+    }
+
+    .menu li:last-child {
+      margin-right: 0;
+    }
+
+    .menu-icon {
+      display: block;
+      font-size: 1.8em;
+      color: white;
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-right: 20px;
+      cursor: pointer;
+    }
+
+    .menu-icon:hover {
+      color: rgb(21, 255, 0); 
+      transition: color 0.3s ease;
+    }
+    
+  }
