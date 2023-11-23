@@ -16,7 +16,7 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.container2}>
-        <div className={styles.boxcard}>
+        <div className={styles.boxcard} >
           <div className={styles.imgbox}>
             <img src="/Logo.png" width={64} height={64}></img>
           </div>

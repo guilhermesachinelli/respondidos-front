@@ -8,7 +8,7 @@
 }
 
 .bck{
-  background-color: #552CB7;
+  background-color: white;
 }
 
 .container{
@@ -58,6 +58,10 @@
 }
 
 .playbutton{
+  background-color: #FD5A46;
+  border-radius: 7px;
+  width: 60%;
+  text-align: center;
   margin-top: 3rem;
   color:  white;
   font-size: 10vh;
