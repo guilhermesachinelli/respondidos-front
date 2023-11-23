@@ -9,7 +9,7 @@ function page() {
         <div className={styles.boxCard}>
             <h1 className={styles.titulo}>Crie seu Quiz!</h1>
             <div className={styles.divInput}>
-                <div className={styles.input1}>
+            <div className={styles.input1}>
                     <input type='text' placeholder='Digite sua pergunta!'></input>
                 </div>
                 <div className={styles.input2}>
@@ -29,7 +29,7 @@ function page() {
                 </div>
             </div>
             <div className={styles.imagem}>
-                <img src='Logo0.png' width={250} height={250}></img>
+                <img src='Logo2.png' width={250} height={250}></img>
             </div>
             <div className={styles.texto}>Jogue com seus amigos perguntas que apenas o seu grupo acertaria!</div>
         </div>
