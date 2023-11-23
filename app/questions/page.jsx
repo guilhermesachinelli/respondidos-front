@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import styles from "./questions.module.css";
 import Header from "../components/header/Header";
 export default function Page() {
-    const [questions, setQuestions] = useState([]);
     const [dados, setDados] = useState([]);
     const [question, setQuestion] = useState("");
     const [category, setCategory] = useState("");
@@ -18,7 +17,6 @@ export default function Page() {
         async function fetchQuestions() {
             try {
                 const response = await axios.get("/api/questions");
-                setQuestions(response.data.data);
                 setDados(response.data.data);
             } catch (error) {
                 console.error(error);
@@ -28,84 +26,93 @@ export default function Page() {
     }, [])
     const handleSubmit = async (e) => {
         e.preventDefault();
-    try{
-        const response = await axios.post("/api/questions", {question, category, difficulty, response1, response2, response3, response4, correct});
-        setQuestions([...dados, response.data.data]);
-        setQuestion("");
-        setCategory("");
-        setDifficulty("");
-        setResponse1("");
-        setResponse2("");
-        setResponse3("");
-        setResponse4("");
-        setCorrect("");
-    }catch(error){
-        console.error(error);
+        try {
+            const response = await axios.post("/api/questions", { question, category, difficulty, response1, response2, response3, response4, correct });
+            setDados([...dados, response.data.data]);
+            setQuestion("");
+            setCategory("");
+            setDifficulty("");
+            setResponse1("");
+            setResponse2("");
+            setResponse3("");
+            setResponse4("");
+            setCorrect("");
+        } catch (error) {
+            console.error(error);
+        }
     }
+    const deleteQuestion = async (id) => {
+        const url = `/api/questions/${id}`;
+        try {
+            await axios.delete(url);
+            setDados(dados.filter((question) => question.id !== id));
+        } catch (error) {
+            console.error("error deleting question", error);
+        }
     }
-    return (
-        <div>
-            <Header />
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <input
-                        type="text"
-                        placeholder="Questão"
-                        value={question}
-                        onChange={(e) => setQuestion(e.target.value)}
-                    />
-                    <input
-                        type="text"
-                        placeholder="Categoria"
-                        value={category}
-                        onChange={(e) => setCategory(e.target.value)}
-                    />
-                    <input
-                        type="text"
-                        placeholder="Dificuldade"
-                        value={difficulty}
-                        onChange={(e) => setDifficulty(e.target.value)}
-                    />
-                    <input
-                        type="text"
-                        placeholder="Resposta 1"
-                        value={response1}
-                        onChange={(e) => setResponse1(e.target.value)}
-                    />
-                    <input
-                        type="text"
-                        placeholder="Resposta 2"
-                        value={response2}
-                        onChange={(e) => setResponse2(e.target.value)}
-                    />
-                    <input
-                        type="text"
-                        placeholder="Resposta 3"
-                        value={response3}
-                        onChange={(e) => setResponse3(e.target.value)}
-                    />
-                    <input
-                        type="text"
-                        placeholder="Resposta 4"
-                        value={response4}
-                        onChange={(e) => setResponse4(e.target.value)}
-                    />
-                    <input
-                        type="text"
-                        placeholder="Resposta Correta"
-                        value={correct}
-                        onChange={(e) => setCorrect(e.target.value)}
-                    />
-                    <button type="submit">Enviar</button>
-                </div>
-            </form>
-            {
-                dados.length  ? (
-                    question ? (
-                    <div className={styles.question}>
-                        {
-                            dados.map((questions) => (
-                                <div key={questions.id} className={styles.cardQuesion}>
+        return (
+            <div>
+                <Header />
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <input
+                            type="text"
+                            placeholder="Questão"
+                            value={question}
+                            onChange={(e) => setQuestion(e.target.value)}
+                        />
+                        <input
+                            type="text"
+                            placeholder="Categoria"
+                            value={category}
+                            onChange={(e) => setCategory(e.target.value)}
+                        />
+                        <input
+                            type="text"
+                            placeholder="Dificuldade"
+                            value={difficulty}
+                            onChange={(e) => setDifficulty(e.target.value)}
+                        />
+                        <input
+                            type="text"
+                            placeholder="Resposta 1"
+                            value={response1}
+                            onChange={(e) => setResponse1(e.target.value)}
+                        />
+                        <input
+                            type="text"
+                            placeholder="Resposta 2"
+                            value={response2}
+                            onChange={(e) => setResponse2(e.target.value)}
+                        />
+                        <input
+                            type="text"
+                            placeholder="Resposta 3"
+                            value={response3}
+                            onChange={(e) => setResponse3(e.target.value)}
+                        />
+                        <input
+                            type="text"
+                            placeholder="Resposta 4"
+                            value={response4}
+                            onChange={(e) => setResponse4(e.target.value)}
+                        />
+                        <input
+                            type="text"
+                            placeholder="Resposta Correta"
+                            value={correct}
+                            onChange={(e) => setCorrect(e.target.value)}
+                        />
+                        <button type="submit">Enviar</button>
+                    </div>
+                </form>
+                {
+                    dados.length ? (
+
+                        <div className={styles.question}>
+                            {
+                                dados.map((questions) => (
+                                    <div key={questions.id} className={styles.cardQuesion}>
                                         <h1>{questions.question}</h1>
                                         <h2>Catégoria:{questions.category}</h2>
                                         <h3>Nivel de Dificuldade:{questions.difficulty}</h3>
@@ -114,22 +121,18 @@ export default function Page() {
                                         <p>C - {questions.response3}</p>
                                         <p>D - {questions.response4}</p>
                                         <h3>Resposta Correta é : {questions.correct}</h3>
-                                </div>
-                            ))
+                                        <button onClick={() => deleteQuestion(questions.id)}>Deletar</button>
+                                    </div>
+                                ))
 
-                        }
-                    </div>
-                ) : (
-                    <div>
-                        <h1>Carregando...</h1>
-                    </div>
-                )
-                ) : (
-                    <div>
-                        <h1>Não há questões cadastradas</h1>
-                    </div>
-                )
-            }
-        </div>
-    )
-}
+                            }
+                        </div>
+                    ) : (
+                        <div>
+                            <h1>Carregando...</h1>
+                        </div>
+                    )
+                }
+            </div>
+        )
+    }
