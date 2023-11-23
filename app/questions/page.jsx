@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import styles from "./questions.module.css"
 import Link from "next/link";
+import Header from "../components/header/Header";
 export default function Page() {
     const [questions, setQuestions] = useState([]);
     const [dados, setDados] = useState([]);
@@ -22,7 +23,7 @@ export default function Page() {
     console.log(questions);
     return (
         <div>
-
+            <Header />
             {
                 dados.length > 0 ? (
                     <div className={styles.question}>
