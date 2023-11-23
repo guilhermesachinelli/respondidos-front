@@ -1,0 +1,42 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #058CD7;
+    padding: 10px 20px; 
+  }
+  
+  .logocontainer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    height: 50px; 
+    margin-right: 10px; 
+  }
+  
+  .menu {
+    display: flex;
+  }
+  
+  .menu ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  .menu li {
+    margin-right: 20px;
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: white;
+    position: relative;
+  }
+  
+  .menu a:hover {
+    color: rgb(21, 255, 0); 
+    transition: color 0.3s ease;
+  }
+  
