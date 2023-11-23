@@ -22,11 +22,12 @@ export default function SobreNos() {
         getMembers();
     }, []);
 
+    //area de retorno
 
     return (
         <div>
-            <Header></Header>
-<Members dados={members}></Members>
+            <Header />
+            <Members dados={members} />
         </div>
     )
 }
