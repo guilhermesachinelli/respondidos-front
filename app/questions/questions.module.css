@@ -1,0 +1,35 @@
+
+.question{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cardQuesion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 40px;
+    border: 10px solid #552cb7;
+}
+.cardQuesion h1{
+    font-size: 3rem;
+}
+.cardQuesion h2{
+    font-size: 2.5rem;
+    margin: 1.5rem 0;
+}
+.cardQuesion h3{
+    font-size: 1.6rem;
+    margin-top: 1rem;
+}
+.cardQuesion p{
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: aliceblue;
+    width: 30%;
+    text-align: center;
+    margin-top: 2rem;
+}
