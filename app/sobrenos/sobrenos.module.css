@@ -35,7 +35,7 @@
   }
   
   
-  .draw-border {
+  .draw_border {
     box-shadow: inset 0 0 0 4px #58cdd1;
     color: #58afd1;
     -webkit-transition: color 0.25s 0.0833333333s;
@@ -43,8 +43,8 @@
     position: relative;
   }
   
-  .draw-border::before,
-  .draw-border::after {
+  .draw_border::before,
+  .draw_border::after {
     border: 0 solid transparent;
     box-sizing: border-box;
     content: '';
@@ -56,22 +56,22 @@
     right: 0;
   }
   
-  .draw-border::before {
+  .draw_border::before {
     border-bottom-width: 4px;
     border-left-width: 4px;
   }
   
-  .draw-border::after {
+  .draw_border::after {
     border-top-width: 4px;
     border-right-width: 4px;
   }
   
-  .draw-border:hover {
+  .draw_border:hover {
     color: #ffe593;
   }
   
-  .draw-border:hover::before,
-  .draw-border:hover::after {
+  .draw_border:hover::before,
+  .draw_border:hover::after {
     border-color: #eb196e;
     -webkit-transition: border-color 0s, width 0.25s, height 0.25s;
     transition: border-color 0s, width 0.25s, height 0.25s;
@@ -79,12 +79,12 @@
     height: 100%;
   }
   
-  .draw-border:hover::before {
+  .draw_border:hover::before {
     -webkit-transition-delay: 0s, 0s, 0.25s;
     transition-delay: 0s, 0s, 0.25s;
   }
   
-  .draw-border:hover::after {
+  .draw_border:hover::after {
     -webkit-transition-delay: 0s, 0.25s, 0s;
     transition-delay: 0s, 0.25s, 0s;
   }
@@ -125,6 +125,7 @@
     top: 0.95em;
     left: 0.96em;
     transition: all 265ms ease-out;
+    z-index: 1;
   }
   
   .social_icons a {
@@ -149,13 +150,15 @@
     transition: all 265ms ease-in;
   }
   
-  .social_icons a:hover i {
+  .social_icons  a:hover i {
     transform: scale(2.2);
     -ms-transform: scale(2.2);
     -webkit-transform: scale(2.2);
     color: #ff003c;
     background: -webkit-linear-gradient(45deg, #ff003c, #c648c8);
     -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+        background-clip: text;
     transition: all 265ms ease-in;
   }
   
