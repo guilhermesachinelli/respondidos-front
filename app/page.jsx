@@ -1,8 +1,11 @@
 import styles from "./page.module.css"
+import Header from "./components/header/Header"
+import Footer from "./components/footer/Footer"
 
 export default function Home() {
   return (
     <div className={styles.bck}>
+      <Header/>
       <div className={styles.container}>
         <div className={styles.div1}>
           <h1 className={styles.respondidos}>Respondidos!</h1>
@@ -13,6 +16,7 @@ export default function Home() {
           <img src="/Logo.png" className={styles.bombalogo}></img>
         </div>
       </div>
+      <Footer/>
     </div>
   )
 }
