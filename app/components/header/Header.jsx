@@ -15,6 +15,8 @@ const Header = () => {
                     <li><a href="/regras">Regras</a></li>
                     <li><a href="/curiosidades">Curiosidades</a></li>
                     <li><a href="/contatos">Contatos</a></li>
+                    <li><a href="/questions">Perguntas</a></li>
+                    <li><a href="/criarPerguntas">Criar Perguntas</a></li>
                 </ul>
             </nav>
         </div>
