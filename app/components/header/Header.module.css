@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #058CD7;
+    background-color: #552cb7;
     padding: 10px 20px; 
   }
   
@@ -18,21 +18,33 @@
   
   .menu {
     display: flex;
+    font-family: Cotane;
+    -webkit-text-fill-color: white;
+  -webkit-text-stroke: 0.8px black;
   }
   
   .menu ul {
     list-style: none;
     display: flex;
+    font-family: Cotane;
+    -webkit-text-fill-color: white;
+  -webkit-text-stroke: 0.8px black;
   }
   
   .menu li {
     margin-right: 20px;
+    font-family: Cotane;
+    -webkit-text-fill-color: white;
+  -webkit-text-stroke: 0.8px black;
   }
   
   .menu a {
     text-decoration: none;
     color: white;
     position: relative;
+    font-family: Cotane;
+    -webkit-text-fill-color: white;
+  -webkit-text-stroke: 0.8px black;
   }
   
   .menu a:hover {

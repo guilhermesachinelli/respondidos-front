@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <div className={styles.header}>
             <div className={styles.logocontainer}>
-                <img src="logo header.png" alt="Logo" width={45} height={40} />
+                <img src="bomba branca.png" alt="Logo" width={45} height={40} />
             </div>
             <nav className={styles.menu}>
                 <ul>
