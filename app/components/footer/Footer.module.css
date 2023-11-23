@@ -1,0 +1,27 @@
+.footer {
+    background-color: hsl(0, 0%, 0%);
+    color: #058CD7;
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .footer div {
+    margin-bottom: 20px;
+  }
+  
+  .h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .text {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .list {
+    list-style: none;
+    padding: 0;
+  }
