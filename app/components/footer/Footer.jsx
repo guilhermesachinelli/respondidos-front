@@ -13,7 +13,6 @@ const Footer = () => {
                 <p className={styles.text}>Endereço: SENAI, Valinhos</p>
             </div>
             <div>
-                <h3 className={styles.h3}>Menu:</h3>
                 <ul className={styles.list}>
                     <div className={styles.text}>
                     <li><a href="/">Página Inicial</a></li>
@@ -24,11 +23,14 @@ const Footer = () => {
                     </div>
                 </ul>
             </div>
-            <div className={styles.redessociais}>
+            <div className={styles.h3}>
                 <h3 className={styles.h3}>Redes Sociais</h3>
+                <div className={styles.redessociais}>
                 <NavImg rota="https://instagram.com" img="/instagram.png" />
                 <NavImg rota="https://github.com" img="/githublogowhite.png" />
                 <NavImg rota="https://twitter.com" img="/x.png" />
+                <NavImg rota="https://facebook.com" img="/facebooklogo.png" />
+                </div>
             </div>
             <div className={styles.politicastermos}>
                 <h3 className={styles.h3}>Políticas e Termos</h3>

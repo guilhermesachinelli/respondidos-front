@@ -1,27 +1,48 @@
 .footer {
-    background-color: hsl(0, 0%, 0%);
-    color: #058CD7;
+    background-color: #058CD7;
+    color: #ffffff;
     padding: 30px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    text-decoration: none;
   }
   
   .footer div {
     margin-bottom: 20px;
+    text-decoration: none;
   }
   
   .h3 {
-    font-size: 1.2em;
+    font-size: 20px;
     margin-bottom: 10px;
+    text-decoration: none;
+    font-family: Cotane;
+    -webkit-text-fill-color:  white; 
+  -webkit-text-stroke: 0.3px black;
   }
   
   .text {
     color: #fff;
-    text-decoration: none;
+    margin-top: 20px;
+    font-family: Cotane;
+    -webkit-text-fill-color:  white; 
+  -webkit-text-stroke: 0.3px black;
   }
   
   .list {
     list-style: none;
     padding: 0;
+    font-size: 15px;
+    text-decoration: none;
+    font-family: Cotane;
+    -webkit-text-fill-color:  white; 
+  -webkit-text-stroke: 0.3px black;
+  }
+
+  .redessociais {
+    gap: 1rem;
+    display: flex;
+    -webkit-text-fill-color:  white; 
+  -webkit-text-stroke: 0.3px black;
   }
