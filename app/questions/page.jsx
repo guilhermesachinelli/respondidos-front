@@ -37,7 +37,7 @@ export default function Page() {
                                         <p>B - {questions.response2}</p>
                                         <p>C - {questions.response3}</p>
                                         <p>D - {questions.response4}</p>
-                                        <h3>Resposta Correta é :{questions.correct}</h3>
+                                        <h3>Resposta Correta é : {questions.correct}</h3>
                                 </div>
                             ))
 
