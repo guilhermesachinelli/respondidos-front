@@ -7,7 +7,9 @@ export default function Home() {
         <div className={styles.div1}>
           <h1 className={styles.respondidos}>Respondidos!</h1>
           <h3 className={styles.slogan}>Ganhe, ou seja explodido!</h3>
+          <div className={styles.playcontainer}>
           <h2 className={styles.playbutton}>Jogar!</h2>
+          </div>
         </div>
         <div className={styles.div2}>
           <img src="/Logo.png" className={styles.bombalogo}></img>
