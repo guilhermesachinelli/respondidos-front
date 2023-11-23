@@ -29,8 +29,9 @@ function page() {
                 </div>
             </div>
             <div className={styles.imagem}>
-                <img src='Logo2.png' width={250} height={250}></img>
+                <img src='Logo0.png' width={250} height={250}></img>
             </div>
+            <div className={styles.texto}>Jogue com seus amigos perguntas que apenas o seu grupo acertaria!</div>
         </div>
     )
 }

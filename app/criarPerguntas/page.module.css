@@ -11,7 +11,8 @@
     justify-content: center;
     align-items: center;
     display: flex;
-    font-family: Acid;
+    font-family: Cotane;
+    font-size: 50px;
     margin-right: 45rem;
 }
 
@@ -22,26 +23,16 @@
     margin-right: 45rem;
     width: 20rem;
     height: 20rem;
-    margin-top: 5rem;
+    margin-top: 2rem;
     margin-bottom: 5rem;
-    background-color: #058cd7;
+    background-color: #552cb7;
     border-radius: 10px;
-
-
-}
-
-.divBotao {
-    display: flex;
-    flex-direction: column;
-    margin-right: 53rem;
-    width: 10rem;
-    margin-top: -15rem;
-    margin-bottom: -15rem;
-    
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.782);
 }
 
 .input1 {
     padding: 1rem;
+    margin-top: 1rem;
 
 
 }
@@ -72,8 +63,25 @@
 
 .imagem {
     display: flex;
-    margin-left: 40rem;
+    margin-left: 20rem;
     margin-top: -20rem;
     margin-bottom: -20rem;
 
+}
+
+.divBotao{
+    display: flex;
+    flex-direction: column;
+    width: 10vw;
+    height: 10vh;
+}
+
+.texto {
+    align-items: center;
+    padding-left: 20rem;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+    font-family:  Mainstay;
+    font-size: 20px;
+    
 }
