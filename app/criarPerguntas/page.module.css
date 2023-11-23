@@ -11,17 +11,15 @@
     align-items: center;
     display: flex;
     font-family: Cotane;
-    -webkit-text-fill-color: #058cd7;
+    -webkit-text-fill-color: white;
     -webkit-text-stroke: 1px black ;
     font-size: 50px;
-    margin-right: 45rem;
 }
 
 .divInput {
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-right: 45rem;
     width: 20rem;
     height: 20rem;
     margin-top: 2rem;
@@ -68,9 +66,10 @@
 
 .texto {
     align-items: center;
-    padding-left: 20rem;
-    margin-top: 1rem;
-    margin-bottom: 4rem;
+    justify-content: center;
+    display: flex;
+    margin-top: -24rem;
+    margin-bottom: 20rem;
     font-family: Cotane;
     -webkit-text-fill-color: white;
     -webkit-text-stroke: 1px black;

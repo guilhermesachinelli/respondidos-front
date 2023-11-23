@@ -28,9 +28,9 @@ function page() {
                     <button>Adicionar</button>
                 </div>
             </div>
-            <div className={styles.imagem}>
+            {/* <div className={styles.imagem}>
                 <img src='Logo2.png' width={250} height={250}></img>
-            </div>
+            </div> */}
             <div className={styles.texto}>Jogue com seus amigos perguntas que apenas o seu grupo acertaria!</div>
         </div>
     )
