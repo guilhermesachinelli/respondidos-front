@@ -1,3 +1,18 @@
+
+@font-face {
+    font-family: Acid;
+    src: url(../public/Royalacid_o.ttf);
+  }
+  
+  @font-face {
+    font-family: Mainstay;
+    src: url(../public/Mainstay.ttf);
+  }
+  
+  @font-face {
+    font-family: Cotane;
+    src: url(../public/CotaneBeach.otf);
+
 * {
     margin: 0;
     padding: 0;
