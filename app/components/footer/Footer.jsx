@@ -22,8 +22,9 @@ const Footer = () => {
                         <li><a className={styles.text} href="/regras">Regras</a></li>
                         <li><a className={styles.text} href="/curiosidades">Curiosidades</a></li>
                         <li><a className={styles.text} href="/contatos">Contatos</a></li>
+                    
                     </div>
-                    </div>
+                </div>
                 </ul>
             </div>
             <div className={styles.h3}>

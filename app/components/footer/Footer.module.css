@@ -4,6 +4,7 @@
   padding: 30px;
   display: flex;
   justify-content: space-around;
+  align-items: first baseline;
   flex-wrap: wrap;
   text-decoration: none;
 }
@@ -48,5 +49,9 @@
 }
 
 .menuu {
-  margin-bottom: 200px;
+  font-size: 20px;
+  text-decoration: none;
+  font-family: Cotane;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke: 0.3px black;
 }
