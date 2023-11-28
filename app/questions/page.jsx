@@ -3,7 +3,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import styles from "./questions.module.css";
 import Header from "../components/header/Header";
+import { useRouter } from "next/navigation";
 export default function Page() {
+    const router = useRouter();
     const [dados, setDados] = useState([]);
     const [question, setQuestion] = useState("");
     const [category, setCategory] = useState("");
@@ -49,6 +51,9 @@ export default function Page() {
         } catch (error) {
             console.error("error deleting question", error);
         }
+    }
+    const updateQuestion = async (id) => {
+        router.push(`/questions/${id}`);
     }
         return (
             <div>
@@ -122,6 +127,7 @@ export default function Page() {
                                         <p>D - {questions.response4}</p>
                                         <h3>Resposta Correta é : {questions.correct}</h3>
                                         <button onClick={() => deleteQuestion(questions.id)}>Deletar</button>
+                                        <button onClick={() => updateQuestion(questions.id)}>Editar</button>
                                     </div>
                                 ))
 
