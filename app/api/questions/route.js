@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { NextResponse } from "next/server";
 
-const url = "http://localhost:5005/question";
+const url = "http://localhost:5000/question";
 
 export async function GET() {
   try {

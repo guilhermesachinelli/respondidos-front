@@ -55,90 +55,89 @@ export default function Page() {
     const updateQuestion = async (id) => {
         router.push(`/questions/${id}`);
     }
-        return (
-            <div>
-                <Header />
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <input
-                            type="text"
-                            placeholder="Questão"
-                            value={question}
-                            onChange={(e) => setQuestion(e.target.value)}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Categoria"
-                            value={category}
-                            onChange={(e) => setCategory(e.target.value)}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Dificuldade"
-                            value={difficulty}
-                            onChange={(e) => setDifficulty(e.target.value)}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Resposta 1"
-                            value={response1}
-                            onChange={(e) => setResponse1(e.target.value)}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Resposta 2"
-                            value={response2}
-                            onChange={(e) => setResponse2(e.target.value)}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Resposta 3"
-                            value={response3}
-                            onChange={(e) => setResponse3(e.target.value)}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Resposta 4"
-                            value={response4}
-                            onChange={(e) => setResponse4(e.target.value)}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Resposta Correta"
-                            value={correct}
-                            onChange={(e) => setCorrect(e.target.value)}
-                        />
-                        <button type="submit">Enviar</button>
+    return (
+        <div>
+            <Header />
+            <form onSubmit={handleSubmit}>
+                <div>
+                    <input
+                        type="text"
+                        placeholder="Questão"
+                        value={question}
+                        onChange={(e) => setQuestion(e.target.value)}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Categoria"
+                        value={category}
+                        onChange={(e) => setCategory(e.target.value)}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Dificuldade"
+                        value={difficulty}
+                        onChange={(e) => setDifficulty(e.target.value)}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Resposta 1"
+                        value={response1}
+                        onChange={(e) => setResponse1(e.target.value)}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Resposta 2"
+                        value={response2}
+                        onChange={(e) => setResponse2(e.target.value)}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Resposta 3"
+                        value={response3}
+                        onChange={(e) => setResponse3(e.target.value)}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Resposta 4"
+                        value={response4}
+                        onChange={(e) => setResponse4(e.target.value)}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Resposta Correta"
+                        value={correct}
+                        onChange={(e) => setCorrect(e.target.value)}
+                    />
+                    <button type="submit">Enviar</button>
+                </div>
+            </form>
+            {
+                dados.length? (
+                    <div className={styles.question}>
+                        {
+                            dados.map((questions) => (
+                                <div key={questions.id} className={styles.cardQuesion}>
+                                    <h1>{questions.question}</h1>
+                                    <h2>Catégoria:{questions.category}</h2>
+                                    <h3>Nivel de Dificuldade:{questions.difficulty}</h3>
+                                    <p>A - {questions.response1}</p>
+                                    <p>B - {questions.response2}</p>
+                                    <p>C - {questions.response3}</p>
+                                    <p>D - {questions.response4}</p>
+                                    <h3>Resposta Correta é : {questions.correct}</h3>
+                                    <button onClick={() => deleteQuestion(questions.id)}>Deletar</button>
+                                    <button onClick={() => updateQuestion(questions.id)}>Editar</button>
+                                </div>
+                            ))
+
+                        }
                     </div>
-                </form>
-                {
-                    dados.length ? (
-
-                        <div className={styles.question}>
-                            {
-                                dados.map((questions) => (
-                                    <div key={questions.id} className={styles.cardQuesion}>
-                                        <h1>{questions.question}</h1>
-                                        <h2>Catégoria:{questions.category}</h2>
-                                        <h3>Nivel de Dificuldade:{questions.difficulty}</h3>
-                                        <p>A - {questions.response1}</p>
-                                        <p>B - {questions.response2}</p>
-                                        <p>C - {questions.response3}</p>
-                                        <p>D - {questions.response4}</p>
-                                        <h3>Resposta Correta é : {questions.correct}</h3>
-                                        <button onClick={() => deleteQuestion(questions.id)}>Deletar</button>
-                                        <button onClick={() => updateQuestion(questions.id)}>Editar</button>
-                                    </div>
-                                ))
-
-                            }
-                        </div>
-                    ) : (
-                        <div>
-                            <h1>Carregando...</h1>
-                        </div>
-                    )
-                }
-            </div>
-        )
-    }
+                ) : (
+                    <div>
+                        <h1>Carregando...</h1>
+                    </div>
+                )
+            }
+        </div>
+    )
+}
