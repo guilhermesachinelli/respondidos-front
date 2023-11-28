@@ -47,6 +47,10 @@
 .txt{
   font-family: analogist;
   color: whitesmoke;
+  margin-top: 4vh;
+  margin-bottom: 4vh;
+  font-size: 4vh;
+  letter-spacing: 1px;
 }
 
 .containertitle{
