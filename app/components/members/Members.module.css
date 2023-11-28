@@ -217,14 +217,15 @@
     transform: rotate(0deg);
   }
 }
-
-.dancing_image {
-  animation: dancing 2s infinite;
+.loading_image{
   justify-content: center;
   align-items: center; 
-  margin: auto;
-  width: 45vw;
-  height: 95%;
+  margin: 0 auto auto auto;
+  display: flex;
+}
+.dancing_image {
+  animation: dancing 2s infinite;
+  width: 30vw;
 }
 
 @media screen and (max-width: 768px) {
@@ -276,5 +277,13 @@
   .card__desc {
     margin: 0.5em;
     text-align: center;
+  }
+  .loading_image{
+    justify-content: center;
+    align-items: center; 
+    margin: auto auto;
+    display: flexbox;
+    width: 45vw;
+    height: 45vw;
   }
 }

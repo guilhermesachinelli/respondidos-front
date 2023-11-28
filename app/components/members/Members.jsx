@@ -6,7 +6,7 @@ import { faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 
 
-const Members = ({dados}) => {
+const Members = ({ dados, onDelete }) => {
     return(
     <div className={style.container}>
     {
@@ -22,14 +22,16 @@ const Members = ({dados}) => {
                             <li><a href={member.github}><i><FontAwesomeIcon icon={faGithub} /></i></a></li>
                             <li><a href={member.instagram}><i><FontAwesomeIcon icon={faInstagram} /></i></a></li>
                         </ul>
-                        <button className={`${style.btn} ${style.draw_border}`} >Follow</button>
-                        <button className={`${style.btn} ${style.draw_border}`}>Message</button>
+                        <button className={`${style.btn} ${style.draw_border}`} onClick={() => onDelete(member.id)}>Delete</button>
+                        <button className={`${style.btn} ${style.draw_border}`}>Editar</button>
 
                     </div>
 
             ))
             ) : (
+                <div className={style.loading_image}>
             <img src="/Logo.png" className={style.dancing_image}/>
+            </div>
         )
     }
     </div>
