@@ -29,7 +29,7 @@ const Members = ({dados}) => {
 
             ))
             ) : (
-            <p>Carregando...</p>
+            <img src="/Logo.png" className={style.dancing_image}/>
         )
     }
     </div>

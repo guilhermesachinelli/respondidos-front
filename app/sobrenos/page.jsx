@@ -25,7 +25,7 @@ export default function SobreNos() {
     //area de retorno
 
     return (
-        <div>
+        <div className={style.bckg}>
             <Header />
             <Members dados={members} />
         </div>
