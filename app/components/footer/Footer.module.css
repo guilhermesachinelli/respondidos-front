@@ -1,8 +1,7 @@
 .footer {
-  background-color: #552cb7;
-  color: #ffffff;
+  background: transparent;
+  color: whitesmoke;
   padding: 30px;
-  display: flex;
   justify-content: space-around;
   align-items: first baseline;
   flex-wrap: wrap;
@@ -15,43 +14,19 @@
 }
 
 .h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 1rem;
+  letter-spacing: 1px;
   text-decoration: none;
-  font-family: Cotane;
-  -webkit-text-fill-color: white;
-  -webkit-text-stroke: 0.3px black;
-}
-
-.text {
-  margin-top: 20px;
-  font-family: Cotane;
-  font-size: 3vh;
-  -webkit-text-fill-color: white;
-  -webkit-text-stroke: 0.8px black;
-}
-
-.list {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
-  text-decoration: none;
-  font-family: Cotane;
-  -webkit-text-fill-color: white;
-  -webkit-text-stroke: 0.3px black;
+  font-family: analogist;
+  color: whitesmoke;
 }
 
 .redessociais {
   gap: 1rem;
   display: flex;
-  -webkit-text-fill-color: white;
-  -webkit-text-stroke: 0.3px black;
-}
-
-.menuu {
-  font-size: 20px;
-  text-decoration: none;
-  font-family: Cotane;
-  -webkit-text-fill-color: white;
-  -webkit-text-stroke: 0.3px black;
+  color: whitesmoke;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  margin-bottom: 0;
 }

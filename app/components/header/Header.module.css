@@ -2,7 +2,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #552cb7;
+    background: transparent;
+    color: whitesmoke;
     padding: 10px 20px; 
   }
   
@@ -19,23 +20,20 @@
   .menu {
     display: flex;
     font-family: Cotane;
-    -webkit-text-fill-color: white;
-  -webkit-text-stroke: 0.8px black;
+    color: whitesmoke;
   }
   
   .menu ul {
     list-style: none;
     display: flex;
     font-family: Cotane;
-    -webkit-text-fill-color: white;
-  -webkit-text-stroke: 0.8px black;
+    color: whitesmoke;
   }
   
   .menu li {
     margin-right: 20px;
     font-family: Cotane;
-    -webkit-text-fill-color: white;
-  -webkit-text-stroke: 0.8px black;
+    color: whitesmoke;
   }
   
   .menu a {
@@ -43,12 +41,11 @@
     color: white;
     position: relative;
     font-family: Cotane;
-    -webkit-text-fill-color: white;
-  -webkit-text-stroke: 0.8px black;
+    color: whitesmoke;
   }
   
   .menu a:hover {
-    color: rgb(21, 255, 0); 
+    color: rgb(247, 0, 255); 
     transition: color 0.3s ease;
   }
   
