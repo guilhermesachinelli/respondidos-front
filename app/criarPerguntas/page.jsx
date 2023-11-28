@@ -11,11 +11,11 @@ function page() {
             <h1 className={styles.divTitulo}>Crie seu Quiz!</h1>
             </div>
             <div className={styles.divInputs}>
-                    <input className={styles.input1} type='text' placeholder='  Digite sua pergunta!'></input>
+                    <input className={styles.input1} type='text' placeholder=' Digite sua pergunta!'></input>
                     <input  className={styles.input1} type='text' placeholder=' Primeira alternativa!'></input>
-                    <input className={styles.input1} type='text' placeholder='  Segunda alternativa!'></input>
-                    <input className={styles.input1} type='text' placeholder='  Terceira alternativa!'></input>
-                    <input className={styles.input1} type='text' placeholder='  Quarta alternativa!'></input>
+                    <input className={styles.input1} type='text' placeholder=' Segunda alternativa!'></input>
+                    <input className={styles.input1} type='text' placeholder=' Terceira alternativa!'></input>
+                    <input className={styles.input1} type='text' placeholder=' Quarta alternativa!'></input>
                     <button className={styles.divBotao}>Adicionar</button>
             </div>
         </div>
