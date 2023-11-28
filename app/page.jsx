@@ -5,18 +5,21 @@ import Footer from "./components/footer/Footer"
 export default function Home() {
   return (
     <div className={styles.bck}>
-      <Header/>
+      <Header />
       <div className={styles.container}>
-        <div className={styles.div1}>
-          <h1 className={styles.respondidos}>Respondidos!</h1>
-          <h3 className={styles.slogan}>Ganhe! Ou seja explodido!</h3>
-          <h2 className={styles.playbutton}>Jogar!</h2>
+        <div className={styles.containertitle}>
+          <h1 className={styles.title}>Respondidos</h1>
         </div>
-        <div className={styles.div2}>
-          <img src="/Logo.png" className={styles.bombalogo}></img>
+        <div className={styles.subcontainer}>
+          <h2 className={styles.subtitle}>Jogar modo clássico</h2>
+          <p className={styles.txt}>As regras são simples: leia a pergunta, acerte a resposta e tente não perder.</p>
+        </div>
+        <div className={styles.subcontainer}>
+          <h2 className={styles.subtitle}>Jogar modo personalizado</h2>
+          <p className={styles.txt}>Quer agitar sua noite de jogos? Personalize as perguntas e jogue com seus amigos!</p>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   )
 }
