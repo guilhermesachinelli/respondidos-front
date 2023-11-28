@@ -28,8 +28,10 @@ export default function SobreNos() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(name, description, image, github, instagram);
         try {
             const response = await axios.post("/api/members", { name, description, image, github, instagram });
+            console.log(response.data);
             setMembers([...members, response.data.data]);
             setName("");
             setDescription("");
@@ -99,7 +101,7 @@ export default function SobreNos() {
                             value={instagram}
                             onChange={(e) => setInstagram(e.target.value)}
                         />
-                        <button className={style.btn}>Adicionar</button>
+                        <button className={style.btn} type="submit" onClick={handleSubmit}>Adicionar</button>
                         </div>
                     </form>
 
