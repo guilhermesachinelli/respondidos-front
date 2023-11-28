@@ -2,7 +2,7 @@
     background-image: url(../../public/bck.png);
     height: 100%;
     width: 100%;
-    background-repeat: initial;
+    
 }
 .footerfixed{
     position: fixed;
