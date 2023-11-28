@@ -9,18 +9,37 @@ import Footer from '../components/footer/Footer';
 export default function SobreNos() {
     //area de state
     const [members, setMembers] = useState('');
+    const [name, setName] = useState("");
+    const [description, setDescription] = useState("");
+    const [image, setImage] = useState("");
+    const [github, setGithub] = useState("");
+    const [instagram, setInstagram] = useState("");
 
-        //area de funções
-        const deleteMember = async (id) => {
-            const url = `/api/members/${id}`;
-            try {
-                await axios.delete(url);
-                setMembers(dados.filter((member) => member.id !== id));
-            } catch (error) {
-                console.error("error deleting member", error);
-            }
+    //area de funções
+    const deleteMember = async (id) => {
+        const url = `/api/members/${id}`;
+        try {
+            await axios.delete(url);
+            setMembers(dados.filter((member) => member.id !== id));
+        } catch (error) {
+            console.error("error deleting member", error);
         }
-    
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post("/api/members", { name, description, image, github, instagram });
+            setMembers([...members, response.data.data]);
+            setName("");
+            setDescription("");
+            setImage("");
+            setGithub("");
+            setInstagram("");
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     //area de efeitos
     useEffect(() => {
@@ -33,7 +52,7 @@ export default function SobreNos() {
             }
         }
         getMembers();
-    }, [deleteMember]);
+    }, [deleteMember, handleSubmit]);
 
 
     //area de retorno
@@ -41,8 +60,51 @@ export default function SobreNos() {
     return (
         <div className={style.bckg}>
             <Header />
-            <Members dados={members} onDelete={deleteMember}/>
-            <Footer className={style.footerfixed}/>
+
+                <div className={style.container}>
+                    <h1 className={style.title}>Sobre Nós</h1>
+                    <p className={style.text}>Aqui você pode encontrar um pouco sobre nós, os integrantes do grupo.</p>
+                </div>
+
+                <form onSubmit={handleSubmit} className={style.form}>
+                    <h3 className={style.form__title}>Adicionar Membro</h3>
+                    <div className={style.form__container}>
+                        <input
+                            type="text"
+                            placeholder="Nome"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                        <input
+                            type="text"
+                            placeholder="Descrição"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                        />
+                        <input
+                            type="text"
+                            placeholder="Imagem"
+                            value={image}
+                            onChange={(e) => setImage(e.target.value)}
+                        />
+                        <input
+                            type="text"
+                            placeholder="Github"
+                            value={github}
+                            onChange={(e) => setGithub(e.target.value)}
+                        />
+                        <input
+                            type="text"
+                            placeholder="Instagram"
+                            value={instagram}
+                            onChange={(e) => setInstagram(e.target.value)}
+                        />
+                        <button className={style.btn}>Adicionar</button>
+                        </div>
+                    </form>
+
+            <Members dados={members} onDelete={deleteMember} />
+            <Footer className={style.footerfixed} />
         </div>
     )
 }

@@ -5,6 +5,9 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
 }
 
 .card {
@@ -172,61 +175,6 @@
   text-align: center;
 }
 
-@keyframes dancing {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  10% {
-    transform: rotate(10deg);
-  }
-
-  20% {
-    transform: rotate(-10deg);
-  }
-
-  30% {
-    transform: rotate(10deg);
-  }
-
-  40% {
-    transform: rotate(-10deg);
-  }
-
-  50% {
-    transform: rotate(10deg);
-  }
-
-  60% {
-    transform: rotate(-10deg);
-  }
-
-  70% {
-    transform: rotate(10deg);
-  }
-
-  80% {
-    transform: rotate(-10deg);
-  }
-
-  90% {
-    transform: rotate(10deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
-}
-.loading_image{
-  justify-content: center;
-  align-items: center; 
-  margin: 0 auto auto auto;
-  display: flex;
-}
-.dancing_image {
-  animation: dancing 2s infinite;
-  width: 30vw;
-}
 
 @media screen and (max-width: 768px) {
   .container {
@@ -278,12 +226,5 @@
     margin: 0.5em;
     text-align: center;
   }
-  .loading_image{
-    justify-content: center;
-    align-items: center; 
-    margin: auto auto;
-    display: flexbox;
-    width: 45vw;
-    height: 45vw;
-  }
+
 }

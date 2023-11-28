@@ -3,6 +3,7 @@ import React from 'react';
 import style from './Members.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons'
+import Bomb from '../bomb/Bomb';
 
 
 
@@ -11,6 +12,9 @@ const Members = ({ dados, onDelete }) => {
     <div className={style.container}>
     {
         dados ? (
+            dados.data.length === 0 ? (
+                <Bomb text="Não há membros cadastrados"/>
+            ) : (
             dados.data.map((member) => (
                     <div className={style.card}>
                         <img className={style.card__image} src={`${member.image}`} />
@@ -27,11 +31,9 @@ const Members = ({ dados, onDelete }) => {
 
                     </div>
 
-            ))
+            )))
             ) : (
-                <div className={style.loading_image}>
-            <img src="/Logo.png" className={style.dancing_image}/>
-            </div>
+                <Bomb text="Carregando membros"/>
         )
     }
     </div>
