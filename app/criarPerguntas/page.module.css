@@ -1,79 +1,73 @@
-.boxCard {
+.Card {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6rem;
-
+    background-image: url(../../public/bck.png);
+    width: 100%;
+    height: 100%;
+   
+   
 }
 
-.titulo {
+.divTitulo{
     justify-content: center;
     align-items: center;
-    display: flex;
-    font-family: Acid;
-    margin-right: 45rem;
+    margin-top: 1.3rem;
+    width: 100%;
+    margin-left: 17rem;
+    font-family: Crima;
+    color: whitesmoke;
+    word-spacing: 5px;
+    letter-spacing: 3px;
 }
 
-.divInput {
-    display: flex;
+.divInputs{
+    justify-content: center;
     align-items: center;
-    flex-direction: column;
-    margin-right: 45rem;
-    width: 20rem;
-    height: 20rem;
-    margin-top: 5rem;
+    background-color: rgba(240, 248, 255, 0.123);
+    margin-top: 6rem;
     margin-bottom: 5rem;
-    background-color: #058cd7;
+    margin-left: -21rem;
+    margin-right: 15rem;
     border-radius: 10px;
+    width: 290rem;
+    height: 40rem;
 
-
-}
-
-.divBotao {
-    display: flex;
-    flex-direction: column;
-    margin-right: 53rem;
-    width: 10rem;
-    margin-top: -15rem;
-    margin-bottom: -15rem;
     
 }
 
-.input1 {
-    padding: 1rem;
-
-
+.input1::placeholder{
+    color: whitesmoke;
+    opacity: 1;
 }
 
-.input2 {
-    padding: 1rem;
-
-
+.input1::-ms-input-placeholder{
+    color: whitesmoke;
 }
 
-.input3 {
-    padding: 1rem;
-
-
+.input1{
+   
+        margin-top: 2.5rem;
+        background-color: rgba(240, 248, 255, 0.187);
+        width: 80%;
+        height: 10%;
+        margin-left: 5.1rem;
+        border-radius: 6px;
+        border: none;
+        font-size: 20px;
+        font-family: analogist;
+        letter-spacing: 1px;
 }
 
-.input4 {
-    padding: 1rem;
-
-
-}
-
-.input5 {
-    padding: 1rem;
-
-
-}
-
-.imagem {
-    display: flex;
-    margin-left: 40rem;
-    margin-top: -20rem;
-    margin-bottom: -20rem;
-
+.divBotao{
+    margin-top: 2.5rem;
+    opacity: 0.8;
+    width: 80%;
+    height: 8%;
+    margin-left: 5.1rem;
+    border-radius: 6px;
+    border: none;
+    background-color: rgba(240, 248, 255, 0.187);
+    color: whitesmoke;
+    font-family: analogist;
+    letter-spacing: 1px;
+    font-size: 20px;
 }
