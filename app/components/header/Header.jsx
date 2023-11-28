@@ -6,16 +6,16 @@ const Header = () => {
     return (
         <div className={styles.header}>
             <div className={styles.logocontainer}>
-                <img src="Logo.png" alt="Logo" width={45} height={40} />
+                <img src="Logo.png" alt="Logo" width={45} height={45} />
             </div>
             <nav className={styles.menu}>
                 <ul>
-                    <li><a href="/">Página inicial</a></li>
-                    <li><a href="/sobrenos">Sobre nós</a></li>
-                    <li><a href="/regras">Regras</a></li>
-                    <li><a href="/curiosidades">Curiosidades</a></li>
-                    <li><a href="/contatos">Contatos</a></li>
-                    <li><a href="/questions">Perguntas</a></li>
+                    <li className={styles.rota}><a className={styles.rota} href="/">Página inicial</a></li>
+                    <li className={styles.rota}><a href="/sobrenos">Sobre nós</a></li>
+                    <li className={styles.rota}><a href="/regras">Regras</a></li>
+                    <li className={styles.rota}><a href="/curiosidades">Curiosidades</a></li>
+                    <li className={styles.rota}><a href="/contatos">Contatos</a></li>
+                    <li className={styles.rota}><a href="/questions">Perguntas</a></li>
                 </ul>
             </nav>
         </div>

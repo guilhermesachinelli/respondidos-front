@@ -23,6 +23,8 @@
   text-decoration: none;
   font-family: analogist;
   color: whitesmoke;
+  justify-content: center;
+  text-align: center;
 }
 
 .redessociais {
@@ -32,5 +34,5 @@
   justify-content: center;
   text-align: center;
   flex-wrap: wrap;
-  margin-bottom: 0;
+  margin-top: 3rem;
 }
