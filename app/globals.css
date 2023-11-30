@@ -25,9 +25,9 @@
   }
   ::-webkit-scrollbar{
     width: 10px;
-    background-color: #222222b0 ;
+    background-color: whitesmoke ;
   }
   ::-webkit-scrollbar-thumb{
-    background-color: #AB966F;
+    background: linear-gradient(#058cd7, #fb7da8, #ffc567);
     border-radius: 10px;
   }
