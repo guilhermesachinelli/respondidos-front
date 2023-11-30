@@ -19,6 +19,7 @@ const Members = ({ dados, onDelete }) => {
                     <div className={style.card}>
                         <img className={style.card__image} src={`${member.image}`} />
                         <p className={style.card__name}>{member.name}</p>
+                        <p className={style.card__name}>{member.age} Anos</p>
                         <div className={style.resume_container}>
                             <p className={style.card__desc}>{member.description}</p>
                         </div>
