@@ -10,6 +10,7 @@ export default function SobreNos() {
     //area de state
     const [members, setMembers] = useState('');
     const [name, setName] = useState("");
+    const [age, setAge] = useState("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
     const [github, setGithub] = useState("");
@@ -30,10 +31,11 @@ export default function SobreNos() {
         e.preventDefault();
         console.log(name, description, image, github, instagram);
         try {
-            const response = await axios.post("/api/members", { name, description, image, github, instagram });
+            const response = await axios.post("/api/members", { name, age, description, image, github, instagram });
             console.log(response.data);
             setMembers([...members, response.data.data]);
             setName("");
+            setAge("");
             setDescription("");
             setImage("");
             setGithub("");
@@ -76,6 +78,12 @@ export default function SobreNos() {
                             placeholder="Nome"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
+                        />
+                        <input
+                            type="text"
+                            placeholder="Idade"
+                            value={age}
+                            onChange={(e) => setAge(e.target.value)}
                         />
                         <input
                             type="text"
