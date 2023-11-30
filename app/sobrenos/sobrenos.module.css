@@ -28,48 +28,6 @@
     -webkit-text-fill-color: white;
     -webkit-text-stroke: 0.8px black;
 }
-.form{
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    padding: 1rem;
-    border-radius: 1rem;
-    background-color: transparent;
-    color: white;
-}
-.form__title{
-    font-family: Cotane;
-    font-size: 2em;
-    -webkit-text-fill-color: white;
-    -webkit-text-stroke: 0.8px black;
-}
-.form__container{
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    padding: 1rem;
-    border-radius: 1rem;
-    background-color: transparent;
-    color: white;
-}
-
-.form__container input{
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    padding: 1rem;
-    border-radius: 1rem;
-    background-color: #f2f2f2;
-    color: black;
-    font-family: Cotane;
-    font-size: 1.5em;
-    -webkit-text-fill-color: black;
-    -webkit-text-stroke: 0.8px black;
-}
-
 .btn{
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -84,18 +42,21 @@
     -webkit-text-fill-color: white;
     -webkit-text-stroke: 0.8px black;
 }
-
+.form{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: transparent;
+    color: white;
+}
 @media screen and (max-width: 600px) {
     .title{
         font-size: 2em;
     }
     .text{
-        font-size: 1em;
-    }
-    .form__title{
-        font-size: 1.5em;
-    }
-    .form__container input{
         font-size: 1em;
     }
     .btn{
