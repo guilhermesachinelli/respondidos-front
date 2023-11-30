@@ -126,6 +126,11 @@
     border: none;
 }
 
+.btn:hover {
+    transform: scale(1.03);
+    transition-duration: 1s;
+  }
+
 @media screen and (max-width: 600px) {
     .title {
         font-size: 2em;
