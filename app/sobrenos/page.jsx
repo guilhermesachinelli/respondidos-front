@@ -80,10 +80,12 @@ export default function SobreNos() {
         <div className={style.bckg}>
             <Header />
 
-            <div className={style.container}>
-                <h1 className={style.title}>Sobre Nós</h1>
-                <p className={style.text}>Aqui você pode encontrar um pouco sobre nós, os integrantes do grupo.</p>
-            </div>
+
+                <div className={style.container}>
+                    <h1 className={style.title}>Sobre Nós</h1>
+                    <p className={style.text}>Aqui você pode encontrar um pouco sobre nós, os integrantes do grupo!</p>
+                </div>
+
 
             <form onSubmit={handleSubmit} className={style.form}>
                 <h3 className={style.form__title}>Adicionar Membro</h3>

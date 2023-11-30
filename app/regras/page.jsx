@@ -6,9 +6,6 @@ export default function Regras() {
     return (
         <div className={styles.tudo}>
             <Header />
-
-
-
             <div className={styles.cardsAll}>
                 <div className={styles.cardTexto}>
                     <h2 className={styles.subTitulo}>Bem-vindo(a) ao mundo do Respondidos!</h2>
