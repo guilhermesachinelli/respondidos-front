@@ -9,23 +9,27 @@
 
 .quizInfosTitulo {
     font-family: Crima;
-    letter-spacing: 2px;
+    font-size: 4.5vh;
+    letter-spacing: 2.5px;
     margin-bottom: 4vh;
 }
 
 .quizInfoLista {
     font-family: analogist;
     letter-spacing: 1px;
+    font-size: 2.5vh;
 }
 
 .introTexto {
     font-family: analogist;
     letter-spacing: 1px;
+    font-size: 2.5vh;
 }
 
 .subTitulo {
     font-family: Crima;
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
+    font-size: 4.5vh;
     margin-bottom: 4vh;
 }
 

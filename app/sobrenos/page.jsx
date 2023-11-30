@@ -81,10 +81,12 @@ export default function SobreNos() {
         <div className={style.bckg}>
             <Header />
 
-            <div className={style.container}>
-                <h1 className={style.title}>Sobre Nós</h1>
-                <p className={style.text}>Aqui você pode encontrar um pouco sobre nós, os integrantes do grupo.</p>
-            </div>
+
+                <div className={style.container}>
+                    <h1 className={style.title}>Sobre Nós</h1>
+                    <p className={style.text}>Aqui você pode encontrar um pouco sobre nós, os integrantes do grupo!</p>
+                </div>
+
 
             <form onSubmit={handleSubmit} className={style.form}>
             <InputMembers name={name} setName={setName} age={age} setAge={setAge} description={description} setDescription={setDescription} image={image} setImage={setImage} github={github} setGithub={setGithub} instagram={instagram} setInstagram={setInstagram} />

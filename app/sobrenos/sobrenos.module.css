@@ -1,39 +1,45 @@
-.bckg{
+.bckg {
     background-image: url(../../public/bck.png);
     height: 100%;
     width: 100%;
-    
+    background-size: cover;
 }
-.footerfixed{
+
+.footerfixed {
     position: fixed;
     bottom: 0;
     width: 100%;
 }
-.container{
+
+.container {
     margin-top: 10px;
     margin-bottom: 1.5rem;
     text-align: center;
     align-items: center;
     justify-content: center;
 }
-.title{
-    font-family: Cotane;
-    font-size: 3em;
-    -webkit-text-fill-color: white;
-    -webkit-text-stroke: 0.8px black;
+
+.title {
+    font-family: Crima;
+    letter-spacing: 2px;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 10vh;
+    margin-top: 7vh;
+    text-align: center;
 }
-.text{
-    font-family: Cotane;
-    font-size: 1.5em;
-    -webkit-text-fill-color: white;
-    -webkit-text-stroke: 0.8px black;
+
+.text {
+    font-family: analogist;
+    letter-spacing: 2px;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 5vh;
 }
-.btn{
+
+.form {
     margin-top: 1rem;
     margin-bottom: 1rem;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    padding: 1rem;
     border-radius: 1rem;
     background-color: #552cb7;
     color: white;
@@ -41,25 +47,109 @@
     font-size: 1.5em;
     -webkit-text-fill-color: white;
     -webkit-text-stroke: 0.8px black;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
-.form{
+
+.form__title {
+    font-family: Crima;
+    letter-spacing: 2px;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 4vh;
+}
+
+.form__container {
+    margin-top: 2.5rem;
+    background-color: rgba(240, 248, 255, 0.187);
+    width: 70%;
+    height: 10%;
+    border-radius: 6px;
+    border: none;
+    font-size: 20px;
+    font-family: analogist;
+    letter-spacing: 1px;
+    color: whitesmoke;
+    
+}
+
+.form__container::placeholder {
+    color: whitesmoke;
+    opacity: 1;
+}
+
+.form__container::-ms-input-placeholder {
+    color: whitesmoke;
+}
+
+.form__container input {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: rgba(240, 248, 255, 0.187);
+    color: black;
+    font-family: analogist;
+    font-size: 1.5em;
+}
+
+.form__container input {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+    margin-top: 2.5rem;
+    background-color: rgba(240, 248, 255, 0.187);
+    width: 80%;
+    height: 10%;
+    border-radius: 6px;
+    border: none;
+    font-size: 20px;
+    font-family: analogist;
+    letter-spacing: 1px;
+    padding-left: 20px;
+    color: whitesmoke;
+}
+
+.btn {
     margin-top: 1rem;
     margin-bottom: 1rem;
     margin-left: 1rem;
     margin-right: 1rem;
     padding: 1rem;
     border-radius: 1rem;
-    background-color: transparent;
-    color: white;
+    background-color: rgba(240, 248, 255, 0.187);
+    font-family: Crima;
+    letter-spacing: 2px;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 4vh;
+    border: none;
 }
+
 @media screen and (max-width: 600px) {
-    .title{
+    .title {
         font-size: 2em;
     }
-    .text{
+
+    .text {
         font-size: 1em;
     }
-    .btn{
+
+    .form__title {
+        font-size: 1.5em;
+    }
+
+    .form__container input {
+        font-size: 1em;
+    }
+
+    .btn {
         font-size: 1em;
     }
 }
