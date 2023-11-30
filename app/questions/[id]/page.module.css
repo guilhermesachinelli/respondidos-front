@@ -1,0 +1,90 @@
+.Card {
+    display: flex;
+    background-image: url(../../../public/bck.png);
+    width: 100%;
+    height: 100%;
+}
+
+.divTitulo {
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.3rem;
+    width: 100%;
+    margin-left: 17rem;
+    font-family: Crima;
+    color: whitesmoke;
+    word-spacing: 5px;
+    letter-spacing: 3px;
+}
+
+.divInputs {
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(240, 248, 255, 0.123);
+    margin-top: 6rem;
+    margin-bottom: 5rem;
+    margin-left: -21rem;
+    margin-right: 15rem;
+    border-radius: 10px;
+    width: 290rem;
+    height: 40rem;
+}
+
+.input1::placeholder {
+    color: whitesmoke;
+    opacity: 1;
+}
+
+.input1::-ms-input-placeholder {
+    color: whitesmoke;
+}
+
+.input1 {
+
+    margin-top: 2.5rem;
+    background-color: rgba(240, 248, 255, 0.187);
+    width: 80%;
+    padding: 0.2rem;
+    margin-left: 5.1rem;
+    border-radius: 6px;
+    border: none;
+    font-size: 20px;
+    font-family: analogist;
+    letter-spacing: 1px;
+    padding-left: 20px;
+    color: whitesmoke;
+}
+
+.input1:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+    margin-top: 2.5rem;
+    background-color: rgba(240, 248, 255, 0.187);
+    width: 80%;
+    height: 10%;
+    margin-left: 5.1rem;
+    border-radius: 6px;
+    border: none;
+    font-size: 20px;
+    font-family: analogist;
+    letter-spacing: 1px;
+    padding-left: 20px;
+    color: whitesmoke;
+}
+
+.divBotao {
+    margin-top: 1.2rem;
+    opacity: 0.8;
+    width: 80%;
+    padding: 0.3rem;
+    margin-left: 5.1rem;
+    border-radius: 6px;
+    border: none;
+    background-color: rgba(240, 248, 255, 0.187);
+    color: whitesmoke;
+    font-family: analogist;
+    letter-spacing: 1px;
+    font-size: 20px;
+    cursor: pointer;
+}
