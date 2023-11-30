@@ -30,3 +30,9 @@
     color: linear-gradient(45deg, #fb7da8, #c648c8 ) !important;
     z-index: 9999;
 }
+
+@media screen and (max-width: 600px) {
+    .mainDiv {
+        width: 90%;
+    }
+}

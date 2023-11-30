@@ -6,6 +6,7 @@ import Header from '../components/header/Header';
 import Members from '../components/members/Members';
 import Footer from '../components/footer/Footer';
 import PopupMessage from '../components/popup/PopUp';
+import InputMembers from '../components/inputmembers/InputMembers';
 
 export default function SobreNos() {
     //area de state
@@ -28,7 +29,7 @@ export default function SobreNos() {
             setMembers(dados.filter((member) => member.id !== id));
             handleShowPopup('Membro deletado com sucesso', 'success')
         } catch (error) {
-            console.error("error deleting member", error);
+            handleShowPopup(`${error}`, 'error')
         }
     }
 
@@ -44,10 +45,10 @@ export default function SobreNos() {
             setImage("");
             setGithub("");
             setInstagram("");
-            handleShowPopup(`Membro adicionado com sucesso, ${response.data.message}`, 'success')
+            handleShowPopup(`Membro adicionado com sucesso`, 'success')
         } catch (error) {
             console.error(error);
-            handleShowPopup(`Erro ao adicionar membro: ${error.message}`, 'error')
+            handleShowPopup(`${error}`, 'error')
         }
     }
 
@@ -88,46 +89,8 @@ export default function SobreNos() {
 
 
             <form onSubmit={handleSubmit} className={style.form}>
-                <h3 className={style.form__title}>Adicionar Membro</h3>
-                <div className={style.form__container}>
-                    <input
-                        type="name"
-                        placeholder="Nome"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                    <input
-                        type="number"
-                        placeholder="Idade"
-                        value={age}
-                        onChange={(e) => setAge(e.target.value)}
-                    />
-                    <input
-                        type="text"
-                        placeholder="Descrição"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                    />
-                    <input
-                        type="text"
-                        placeholder="Imagem"
-                        value={image}
-                        onChange={(e) => setImage(e.target.value)}
-                    />
-                    <input
-                        type="text"
-                        placeholder="Github"
-                        value={github}
-                        onChange={(e) => setGithub(e.target.value)}
-                    />
-                    <input
-                        type="text"
-                        placeholder="Instagram"
-                        value={instagram}
-                        onChange={(e) => setInstagram(e.target.value)}
-                    />
-                    <button className={style.btn} type="submit" onClick={handleSubmit}>Adicionar</button>
-                </div>
+            <InputMembers name={name} setName={setName} age={age} setAge={setAge} description={description} setDescription={setDescription} image={image} setImage={setImage} github={github} setGithub={setGithub} instagram={instagram} setInstagram={setInstagram} />
+            <button className={style.btn} type="submit" onClick={handleSubmit}>Adicionar</button>
             </form>
 
             <Members dados={members} onDelete={deleteMember} />

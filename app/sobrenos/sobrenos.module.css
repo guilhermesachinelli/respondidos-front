@@ -41,8 +41,12 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
     border-radius: 1rem;
-    background-color: transparent;
+    background-color: #552cb7;
     color: white;
+    font-family: Cotane;
+    font-size: 1.5em;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke: 0.8px black;
     text-align: center;
     width: 100%;
     display: flex;
