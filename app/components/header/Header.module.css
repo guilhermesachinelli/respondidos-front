@@ -1,99 +1,117 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: transparent;
-    color: whitesmoke;
-    padding: 10px 20px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  color: whitesmoke;
+  padding: 10px 20px;
+}
+
+.logocontainer {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.menu {
+  display: flex;
+  font-family: Cotane;
+  color: whitesmoke;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  font-family: Cotane;
+  color: whitesmoke;
+}
+
+.rota {
+  display: flex;
+  font-family: Cotane;
+  color: whitesmoke;
+  background:
+    linear-gradient(to right, rgba(255, 255, 255, 0.384), rgba(255, 255, 255)),
+    linear-gradient(to right, #058cd7, #fb7da8, #ffc567);
+  background-size: 100% 0.1em, 0 0.1em;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+}
+
+.rota:hover {
+  transform: scale(1.09);
+  transition-duration: 0.7s;
+  background-size: 0 0.1em, 100% 0.1em;
+}
+.rota:focus {
+  transform: scale(1.09);
+  transition-duration: 0.7s;
+  background-size: 0 0.1em, 100% 0.1em;
+}
+
+.menu li {
+  margin-right: 20px;
+  font-family: Cotane;
+  color: whitesmoke;
+}
+
+.menu a {
+  text-decoration: none;
+  position: relative;
+  font-family: Cotane;
+  color: whitesmoke;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 10px 0;
   }
-  
+
   .logocontainer {
-    display: flex;
-    align-items: center;
+    margin-left: 10px;
   }
-  
-  .logo {
-    height: 50px; 
-    margin-right: 10px; 
-  }
-  
+
   .menu {
-    display: flex;
-    font-family: Cotane;
-    color: whitesmoke;
+    margin-right: 10px;
   }
-  
-  .menu ul {
-    list-style: none;
-    display: flex;
-    font-family: Cotane;
-    color: whitesmoke;
-  }
-  
-  .menu li {
-    margin-right: 20px;
-    font-family: Cotane;
-    color: whitesmoke;
-  }
-  
+
   .menu a {
-    text-decoration: none;
-    color: white;
-    position: relative;
-    font-family: Cotane;
-    color: whitesmoke;
+    font-size: 0.95em;
   }
-  
-  .menu a:hover {
-    color: rgb(247, 0, 255); 
+
+  .menu li {
+    margin-right: 10px;
+    font-size: 0.90em;
+  }
+
+  .menu ul {
+    margin-right: 10px;
+  }
+
+  .menu li:last-child {
+    margin-right: 0;
+  }
+
+  .menu-icon {
+    display: block;
+    font-size: 1.8em;
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+
+  .menu-icon:hover {
+    color: rgb(21, 255, 0);
     transition: color 0.3s ease;
   }
-  
-  @media screen and (max-width: 768px) {
-    .header {
-      flex-direction: column;
-      padding: 10px 0;
-    }
-    
-    .logocontainer {
-      margin-left: 10px;
-    }
 
-    .menu {
-      margin-right: 10px;
-    }
-
-    .menu a {
-      font-size: 0.95em;
-    }
-
-    .menu li {
-      margin-right: 10px;
-      font-size: 0.90em;
-    }
-
-    .menu ul {
-      margin-right: 10px;
-    }
-
-    .menu li:last-child {
-      margin-right: 0;
-    }
-
-    .menu-icon {
-      display: block;
-      font-size: 1.8em;
-      color: white;
-      position: absolute;
-      top: 0;
-      right: 0;
-      margin-right: 20px;
-      cursor: pointer;
-    }
-
-    .menu-icon:hover {
-      color: rgb(21, 255, 0); 
-      transition: color 0.3s ease;
-    }
-    
-  }
+}
