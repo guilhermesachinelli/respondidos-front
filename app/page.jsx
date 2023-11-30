@@ -10,13 +10,15 @@ export default function Home() {
         <div className={styles.containertitle}>
           <h1 className={styles.title}>Respondidos</h1>
         </div>
-        <div className={styles.subcontainer}>
+        <div className={styles.hold}>
+        <div className={styles.sub_container} onClick="">
           <h2 className={styles.subtitle}>Jogar modo clássico</h2>
-          <p className={styles.txt}>As regras são simples: leia a pergunta, acerte a resposta e tente não perder.</p>
+          <p className={styles.txt}>Teste seus conhecimentos gerais! As regras são simples: leia a pergunta, acerte a resposta e tente não perder.</p>
         </div>
-        <div className={styles.subcontainer}>
+        <div className={styles.sub_container} onClick="">
           <h2 className={styles.subtitle}>Jogar modo personalizado</h2>
           <p className={styles.txt}>Quer agitar sua noite de jogos? Personalize as perguntas e jogue com seus amigos!</p>
+        </div>
         </div>
       </div>
       <Footer />
