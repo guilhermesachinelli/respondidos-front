@@ -5,6 +5,7 @@ import styles from "./questions.module.css";
 import Header from "../components/header/Header";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Page() {
     const router = useRouter();
@@ -37,7 +38,7 @@ export default function Page() {
             <Header />
             <Link href={"/questions/register"}>
                 <div className={styles.buttonAdd}>
-                    <button>Crie sua própria pergunta!</button>
+                    <button><FontAwesomeIcon icon={faPlus} /></button>
 
                 </div>
             </Link>
