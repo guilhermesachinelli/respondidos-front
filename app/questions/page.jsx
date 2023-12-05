@@ -5,6 +5,10 @@ import styles from "./questions.module.css";
 import Header from "../components/header/Header";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-brands-svg-icons";
+
+
 export default function Page() {
     const router = useRouter();
     const [dados, setDados] = useState([]);
@@ -32,35 +36,41 @@ export default function Page() {
         router.push(`/questions/${id}`);
     }
     return (
-        <div>
+        <div className={styles.all}>
             <Header />
             <Link href={"/questions/register"}>
-                <button>Criar Pergunta</button>
-                </Link>
+                <div className={styles.buttonAdd}>
+                    <button><FontAwesomeIcon icon={ faPlus } /></button>
+
+
+                </div>
+            </Link>
+
             {
-                dados.length? (
+                dados.length ? (
                     <div className={styles.question}>
                         {
                             dados.map((questions) => (
                                 <div key={questions.id} className={styles.cardQuesion}>
-                                    <h1>{questions.question}</h1>
-                                    <h2>Catégoria:{questions.category}</h2>
-                                    <h3>Nivel de Dificuldade:{questions.difficulty}</h3>
-                                    <p>A - {questions.response1}</p>
-                                    <p>B - {questions.response2}</p>
-                                    <p>C - {questions.response3}</p>
-                                    <p>D - {questions.response4}</p>
-                                    <h3>Resposta Correta é : {questions.correct}</h3>
+                                    <h1 className={styles.titleQuestion}>{questions.question}</h1>
+                                    <h2 className={styles.card2}>Categoria: {questions.category}</h2>
+                                    <h3 className={styles.card2}>Nivel de Dificuldade: {questions.difficulty}</h3>
+                                    <div className={styles.options}>
+                                        <p>A - {questions.response1}</p>
+                                        <p>B - {questions.response2}</p>
+                                        <p>C - {questions.response3}</p>
+                                        <p>D - {questions.response4}</p>
+                                    </div>
                                     <button onClick={() => deleteQuestion(questions.id)}>Deletar</button>
+                                   
                                     <button onClick={() => updateQuestion(questions.id)}>Editar</button>
                                 </div>
                             ))
-
                         }
                     </div>
                 ) : (
                     <div>
-                        <h1>Carregando...</h1>
+                        <h1 className={styles.upload}>Carregando...</h1>
                     </div>
                 )
             }

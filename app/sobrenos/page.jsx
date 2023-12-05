@@ -5,15 +5,12 @@ import axios from "axios";
 import Header from '../components/header/Header';
 import Members from '../components/members/Members';
 import Footer from '../components/footer/Footer';
-import PopupMessage from '../components/popup/PopUp';
-import InputMembers from '../components/inputmembers/InputMembers';
 
 export default function SobreNos() {
     //area de state
     const [members, setMembers] = useState('');
     const [errorMsg, setError] = useState('');
     const [name, setName] = useState("");
-    const [age, setAge] = useState("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
     const [github, setGithub] = useState("");
@@ -29,7 +26,6 @@ export default function SobreNos() {
         try {
             await axios.delete(url);
             setMembers(dados.filter((member) => member.id !== id));
-            handleShowPopup('Membro deletado com sucesso', 'success')
         } catch (error) {
             
             handleShowPopup(`${error}`, 'error')
@@ -64,8 +60,9 @@ export default function SobreNos() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(name, description, image, github, instagram);
         try {
-            const response = await axios.post("/api/members", { name, age, description, image, github, instagram });
+            const response = await axios.post("/api/members", { name, description, image, github, instagram });
             console.log(response.data);
             setMembers([...members, response.data.data]);
             handleShowPopup(`Membro adicionado com sucesso`, 'success')
@@ -74,7 +71,6 @@ export default function SobreNos() {
             console.log(response.data.message);
             setError(response.data.message);
             handleShowPopup(`${errorMsg}`, 'error')
-        }
     }
 
     //area de efeitos
@@ -82,22 +78,12 @@ export default function SobreNos() {
         fetchMembers();
     }, [page, deleteMember, handleSubmit]);
 
-    //area popUp
-    const handleShowPopup = (message, type,) => {
-        setPopupMessage(message)
-        setPopupType(type)
-        setShowPopup(true)
-        setTimeout(() => {
-            setShowPopup(false)
-        }, 4000)
-    }
 
     //area de retorno
 
     return (
         <div className={style.bckg}>
             <Header />
-
 
             <div className={style.container}>
                 <h1 className={style.title}>Sobre Nós</h1>

@@ -3,6 +3,7 @@ import React from 'react';
 import style from './Members.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faPenToSquare, faTrash} from '@fortawesome/free-solid-svg-icons'
 import Bomb from '../bomb/Bomb';
 
 
@@ -28,9 +29,10 @@ const Members = ({ dados, onDelete }) => {
                             <li><a href={member.github}><i><FontAwesomeIcon icon={faGithub} /></i></a></li>
                             <li><a href={member.instagram}><i><FontAwesomeIcon icon={faInstagram} /></i></a></li>
                         </ul>
-                        <button className={`${style.btn} ${style.draw_border}`} onClick={() => onDelete(member.id)}>Delete</button>
-                        <button className={`${style.btn} ${style.draw_border}`}>Editar</button>
-
+                        <ul className={style.social_icons}>
+                        <FontAwesomeIcon icon={faPenToSquare} onClick={() => onDelete(member.id)}/>
+                        <FontAwesomeIcon icon={faTrash} />
+                        </ul>
                     </div>
 
             )))

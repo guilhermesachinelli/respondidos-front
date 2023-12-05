@@ -41,6 +41,8 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
     border-radius: 1rem;
+    background-color: transparent;
+    color: white;
     text-align: center;
     width: 100%;
     display: flex;
@@ -126,17 +128,26 @@
     border: none;
 }
 
+.btn:hover {
+    transform: scale(1.03);
+    transition-duration: 1s;
+  }
+
 @media screen and (max-width: 600px) {
     .title {
         font-size: 2em;
     }
 
-    .text {
-        font-size: 1em;
+    .text{
+        font-size: 1.5vh;
     }
 
     .form__title {
         font-size: 1.5em;
+    }
+
+    .form__container{
+        width: 85%;
     }
 
     .form__container input {
@@ -145,5 +156,11 @@
 
     .btn {
         font-size: 1em;
+    }
+
+    .text{
+        padding: 2vh;
+        text-align: center;
+        font-size: 3.5vh;
     }
 }
