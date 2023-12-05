@@ -69,3 +69,19 @@
     transition-duration: 1s;
   }
 
+  @media screen and (max-width: 600px) {
+
+    .cardsAll{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cardTexto{
+        width: 80%;
+    }
+
+    .tudo{
+        background-size: cover;
+    }
+  }
+
