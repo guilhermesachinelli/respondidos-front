@@ -1,0 +1,102 @@
+.background {
+    min-height: 100vh;
+    width: 100%;
+    background-image: url(../../public/bck.png);
+    text-align: center;
+}
+
+
+.fofix {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-height: calc(100vh - 100px);
+    overflow: auto;
+    max-height: 100vh;
+    flex-shrink: 0;
+}
+.fdbc{
+    font-family: Cotane;
+    font-size: 2em;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke: 0.8px black;
+}
+.sbf {
+    font-family: Cotane;
+    font-size: 1.5em;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke: 0.0px black;
+}
+
+.tsb {
+    font-family: Cotane;
+    font-size: 3em;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke: 0.0px black;
+}
+
+.sbt {
+font-family: Cotane;
+    font-size: 1.5em;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke: 0.0px black;
+}
+
+.bds {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #552cb7;
+    color: white;
+    font-family: Cotane;
+    font-size: 1.5em;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke: 0.8px black;
+}
+
+.idc {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #f2f2f255;
+    font-family: Cotane;
+    font-size: 1.5em;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke: 0.0px black;
+}
+.idco{
+background-color: #f2f2f2a4;
+-webkit-text-fill-color: black;
+}
+
+
+.bdss {
+    resize: none;
+    overflow: auto;
+    page-break-inside: avoid;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #f2f2f247;
+    color: black;
+    font-size: 1.5em;
+    -webkit-text-fill-color: black;
+    -webkit-text-stroke: 0.8px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contato-content {
+    max-height: calc(100vh - 60px); 
+    overflow-y: auto; 
+  }
