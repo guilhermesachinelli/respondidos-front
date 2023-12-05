@@ -18,7 +18,7 @@ const Members = ({ dados, onDelete, onEdite}) => {
                 <Bomb text="Não há membros cadastrados"/>
             ) : (
             dados.map((member) => (
-                    <div className={style.card}>
+                    <div className={style.card} key={member.id}>
                         <img className={style.card__image} src={`${member.image}`} />
                         <p className={style.card__name}>{member.name}</p>
                         <p className={style.card__name}>{member.age} Anos</p>

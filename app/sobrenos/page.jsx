@@ -7,7 +7,6 @@ import Members from '../components/members/Members';
 import Footer from '../components/footer/Footer';
 import InputMembers from '../components/inputmembers/InputMembers';
 import PopupMessage from '../components/popup/PopUp';
-import { changePage } from '../api/members/route';
 
 export default function SobreNos() {
     //area de state
@@ -58,15 +57,10 @@ export default function SobreNos() {
 
     const handleNextPage = () => {
         if (page > members.length / 3) {
-            if (members.length % 3 !== 0) {
-                return;
-            } else {
-                setPage(page + 1);
-                changePage(page);
-            }
+            return;
         }
         setPage(page + 1);
-        changePage(page);
+        return 
     }
 
     const handlePreviousPage = () => {
@@ -74,7 +68,7 @@ export default function SobreNos() {
             return;
         }
         setPage(page - 1);
-        changePage(page);
+        return 
     }
 
 
@@ -82,22 +76,14 @@ export default function SobreNos() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(name, description, image, github, instagram);
-if(members.data !== true){
             const response = await axios.post("/api/members", { name, description, image, github, instagram });
-            console.log(response.data);
-            setMembers([...members, response.data.results]);
+            setMembers([...members, response.data.data]);
             handleShowPopup(`Membro adicionado com sucesso`, 'success')
-} else {
-            const response = await axios.get("/api/members");
-            console.log(response.data.message);
-            setError(response.data.message);
-            handleShowPopup(`${errorMsg}`, 'error')
-}
     }
     //area de efeitos
     useEffect(() => {
         const getMembers = async () => {
-            const response = await axios.get(`/api/members`);
+            const response = await axios.get(`/api/members?page=${page}`);
             setMembers(response.data.results);
         }
         getMembers();
@@ -120,7 +106,7 @@ if(members.data !== true){
                 <button className={style.btn} type="submit" onClick={handleSubmit}>Adicionar</button>
             </form>
 
-            <Members dados={members} onDelete={deleteMember} onEdite={editMember}/>
+            <Members dados={members} onDelete={deleteMember} onEdite={editMember} />
 
             <div className={style.container}>
                 <button className={style.btn} onClick={handlePreviousPage}>Anterior</button>

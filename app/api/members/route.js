@@ -4,18 +4,19 @@ import { NextResponse } from "next/server";
 
 
 
-let url = `http://172.30.208.1:5005/Members?page=1`;
-
-export const changePage = (page) => {
-
-  url = `http://172.30.208.1:5005/Members?page=${page}`;
-  console.log(url);
-}
+const url = process.env.base_url + `/Members`;
+let pageUrl = url + `?page=1`;
 
 
-export async function GET() {
+export async function GET(request) {
+  const { searchParams } = new URL(request.url);
+  const page = searchParams.get("page");
+
+  pageUrl = url + `?page=${page}`;
+
+  console.log("page", page);
   try {
-    const response = await axios.get(url);
+    const response = await axios.get(pageUrl);
 
     return NextResponse.json(response.data);
   } catch (error) {
