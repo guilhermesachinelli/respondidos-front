@@ -6,7 +6,10 @@ import style from './contato.module.css'
 import React, { useState, useEffect } from 'react';
 
 
+// Criação do componente ContatoModule
 export default function ContatoModule() {
+    
+    // Definição do estado inicial do formulário
     const [form, setForm] = useState({
         nome: '',
         email: '',
