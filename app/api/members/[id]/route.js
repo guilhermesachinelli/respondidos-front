@@ -14,3 +14,14 @@ export async function DELETE(request,{ params } ) {
       return new NextResponse("Erro interno do servidor", { status: 500 });
   }
 }
+
+export async function PUT(request,{ params } ) {
+  const {id} = params;
+  try{
+      const response = await axios.put(`${url}/${id}`, request.body);
+      return NextResponse.json(response.data);
+  }catch(error){
+      console.log("[ORDER_UPDATE]", error);
+      return new NextResponse("Erro interno do servidor", { status: 500 });
+  }
+}

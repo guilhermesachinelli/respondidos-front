@@ -8,7 +8,7 @@ import Bomb from '../bomb/Bomb';
 
 
 
-const Members = ({ dados, onDelete }) => {
+const Members = ({ dados, onDelete, onEdite}) => {
 
     return(
     <div className={style.container}>
@@ -30,8 +30,8 @@ const Members = ({ dados, onDelete }) => {
                             <li><a href={member.instagram}><i><FontAwesomeIcon icon={faInstagram} /></i></a></li>
                         </ul>
                         <ul className={style.social_icons}>
-                        <button  onClick={() => onDelete(member.id)}><FontAwesomeIcon icon={faPenToSquare}/></button>
-                        <button><FontAwesomeIcon icon={faTrash} /></button>
+                        <li><button  onClick={() => onEdite(member.id)}><FontAwesomeIcon icon={faPenToSquare}/></button></li>
+                        <li><button onClick={() => onDelete(member.id)}><FontAwesomeIcon icon={faTrash} /></button></li>
                         </ul>
                     </div>
 

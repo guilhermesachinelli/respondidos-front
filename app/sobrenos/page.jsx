@@ -30,6 +30,17 @@ export default function SobreNos() {
         try {
             await axios.delete(url);
             setMembers(members.filter((member) => member.id !== id));
+            handleShowPopup(`Membro deletado com sucesso`, 'success')
+        } catch (error) {
+
+            handleShowPopup(`${error}`, 'error')
+        }
+    }
+    const editMember = async (id) => {
+        const url = `/api/members/${id}`;
+        try {
+            await axios.put(url);
+            setMembers(members.filter((member) => member.id !== id));
         } catch (error) {
 
             handleShowPopup(`${error}`, 'error')
@@ -109,7 +120,7 @@ if(members.data !== true){
                 <button className={style.btn} type="submit" onClick={handleSubmit}>Adicionar</button>
             </form>
 
-            <Members dados={members} onDelete={deleteMember} />
+            <Members dados={members} onDelete={deleteMember} onEdite={editMember}/>
 
             <div className={style.container}>
                 <button className={style.btn} onClick={handlePreviousPage}>Anterior</button>
