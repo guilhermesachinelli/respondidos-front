@@ -11,7 +11,7 @@ import InputMembers from '../components/inputmembers/InputMembers';
 export default function SobreNos() {
     //area de state
     const [members, setMembers] = useState('');
-    const [error, setError] = useState('');
+    const [errorMsg, setError] = useState('');
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
     const [description, setDescription] = useState("");
@@ -31,6 +31,7 @@ export default function SobreNos() {
             setMembers(dados.filter((member) => member.id !== id));
             handleShowPopup('Membro deletado com sucesso', 'success')
         } catch (error) {
+            
             handleShowPopup(`${error}`, 'error')
         }
     }
@@ -38,7 +39,7 @@ export default function SobreNos() {
     //area paginação
     const fetchMembers = async () => {
         try {
-            const response = await axios.get(`/api/members`);
+            const response = await axios.get(`/api/members?page=${page}`);
             setMembers(response.data.results);
         } catch (error) {
             console.error(error);
@@ -46,15 +47,17 @@ export default function SobreNos() {
     }
 
     const handleNextPage = () => {
+        if (page > members.length) {
+            return;
+        }
         setPage(page + 1);
-        fetchMembers();
     }
 
     const handlePreviousPage = () => {
-        if (page > 1) {
-            setPage(page - 1);
-            fetchMembers();
+        if (page < 1) {
+            return;
         }
+        setPage(page - 1);
     }
 
 
@@ -65,23 +68,19 @@ export default function SobreNos() {
             const response = await axios.post("/api/members", { name, age, description, image, github, instagram });
             console.log(response.data);
             setMembers([...members, response.data.data]);
-            setName("");
-            setAge("");
-            setDescription("");
-            setImage("");
-            setGithub("");
-            setInstagram("");
             handleShowPopup(`Membro adicionado com sucesso`, 'success')
         } catch (error) {
-            console.error(error);
-            handleShowPopup(`${members.data.error}`, 'error')
+            const response = await axios.get("/api/members/errors");
+            console.log(response.data.message);
+            setError(response.data.message);
+            handleShowPopup(`${errorMsg}`, 'error')
         }
     }
 
     //area de efeitos
     useEffect(() => {
         fetchMembers();
-    }, [deleteMember, handleSubmit]);
+    }, [page, deleteMember, handleSubmit]);
 
     //area popUp
     const handleShowPopup = (message, type,) => {
@@ -112,6 +111,11 @@ export default function SobreNos() {
             </form>
 
             <Members dados={members} onDelete={deleteMember} />
+
+            <div className={style.container}>
+                <button className={style.btn} onClick={handlePreviousPage}>Anterior</button>
+                <button className={style.btn} onClick={handleNextPage}>Próxima</button>
+            </div>
             {
                 showPopup ? (
                     <PopupMessage message={popupMessage} type={popupType} />
