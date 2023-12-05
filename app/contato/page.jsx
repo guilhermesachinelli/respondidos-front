@@ -76,7 +76,7 @@ export default function ContatoModule() {
 
             <div className={style.sbf}>
                 <h1 className={style.tsb}>Contato</h1>
-                <p className={style.sbt}>Aqui você podera enviar o seu Feedback</p>
+                <p className={style.sbt}>Aqui você poderá enviar o seu Feedback</p>
             </div>
 
             <form onSubmit={enviar} className={style.bdss}>
