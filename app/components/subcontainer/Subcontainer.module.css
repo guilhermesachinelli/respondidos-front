@@ -1,0 +1,52 @@
+.sub_container {
+    background-color: rgba(245, 245, 245, 0.108);
+    margin-bottom: 8vh;
+    width: 70%;
+    text-align: center;
+    align-items: center;
+    border-radius: 1rem;
+  }
+
+  .sub_container:hover {
+    transform: scale(1.03);
+    transition-duration: 1s;
+  }
+  
+  .subtitle {
+    font-family: Crima;
+    letter-spacing: 4px;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 5vh;
+    margin-top: 7px;
+  }
+  
+  .txt {
+    font-family: analogist;
+    color: whitesmoke;
+    margin-top: 3vh;
+    margin-bottom: 4vh;
+    font-size: 4vh;
+    letter-spacing: 1px;
+    padding: 2vh;
+  }
+
+  @media screen and (max-width: 600px){
+    .txt{
+        font-size: 2.5vh;
+        padding: 2vh;
+        margin-top: 0;
+      }
+    
+      .sub_container{
+        min-width: 90%;
+        margin-bottom: 1.8rem;
+      }
+
+      .subtitle {
+        font-size: 3.5vh;
+        padding: 3vh;
+        width: 100%;
+        text-align: center;
+      }
+  }
