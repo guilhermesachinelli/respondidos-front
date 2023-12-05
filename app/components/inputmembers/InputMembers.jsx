@@ -2,7 +2,7 @@ import style from './InputMembers.module.css';
 
 const InputMembers = ({name, age, description, image, github, instagram, setName, setAge, setDescription, setImage, setGithub, setInstagram}) => {
     return (
-        <>
+        <div className={style.form}>
                 <h3 className={style.form__title}>Adicionar Membro</h3>
                 <div className={style.form__container}>
                     <input
@@ -42,7 +42,7 @@ const InputMembers = ({name, age, description, image, github, instagram, setName
                         onChange={(e) => setInstagram(e.target.value)}
                     />
                 </div>
-        </>
+        </div>
     )
 }
 

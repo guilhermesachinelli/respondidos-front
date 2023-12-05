@@ -3,19 +3,21 @@ import React from 'react';
 import style from './Members.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faPenToSquare, faTrash} from '@fortawesome/free-solid-svg-icons'
 import Bomb from '../bomb/Bomb';
 
 
 
-const Members = ({ dados, onDelete }) => {
+const Members = ({ dados, onDelete, onEdite}) => {
+
     return(
     <div className={style.container}>
     {
         dados ? (
-            dados.data.length === 0 ? (
+            dados.length === 0 ? (
                 <Bomb text="Não há membros cadastrados"/>
             ) : (
-            dados.data.map((member) => (
+            dados.map((member) => (
                     <div className={style.card}>
                         <img className={style.card__image} src={`${member.image}`} />
                         <p className={style.card__name}>{member.name}</p>
@@ -27,9 +29,10 @@ const Members = ({ dados, onDelete }) => {
                             <li><a href={member.github}><i><FontAwesomeIcon icon={faGithub} /></i></a></li>
                             <li><a href={member.instagram}><i><FontAwesomeIcon icon={faInstagram} /></i></a></li>
                         </ul>
-                        <button className={`${style.btn} ${style.draw_border}`} onClick={() => onDelete(member.id)}>Delete</button>
-                        <button className={`${style.btn} ${style.draw_border}`}>Editar</button>
-
+                        <ul className={style.social_icons}>
+                        <li><button  onClick={() => onEdite(member.id)}><FontAwesomeIcon icon={faPenToSquare}/></button></li>
+                        <li><button onClick={() => onDelete(member.id)}><FontAwesomeIcon icon={faTrash} /></button></li>
+                        </ul>
                     </div>
 
             )))

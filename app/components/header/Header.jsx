@@ -13,7 +13,7 @@ const Header = () => {
                     <li className={styles.rota}><a className={styles.rota} href="/">Página inicial</a></li>
                     <li className={styles.rota}><a href="/sobrenos">Sobre nós</a></li>
                     <li className={styles.rota}><a href="/regras">Regras</a></li>
-                    <li className={styles.rota}><a href="/contatos">Contato</a></li>
+                    <li className={styles.rota}><a href="/contato">Contato</a></li>
                     <li className={styles.rota}><a href="/questions">Perguntas</a></li>
                 </ul>
             </nav>

@@ -5,56 +5,103 @@ import axios from "axios";
 import Header from '../components/header/Header';
 import Members from '../components/members/Members';
 import Footer from '../components/footer/Footer';
+import InputMembers from '../components/inputmembers/InputMembers';
+import PopupMessage from '../components/popup/PopUp';
+import { changePage } from '../api/members/route';
 
 export default function SobreNos() {
     //area de state
     const [members, setMembers] = useState('');
+    const [errorMsg, setError] = useState('');
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
+    const [age, setAge] = useState("");
     const [image, setImage] = useState("");
     const [github, setGithub] = useState("");
     const [instagram, setInstagram] = useState("");
+    const [showPopup, setShowPopup] = useState(false);
+    const [popupMessage, setPopupMessage] = useState('');
+    const [popupType, setPopupType] = useState('');
+    const [page, setPage] = useState(1);
 
     //area de funções
     const deleteMember = async (id) => {
         const url = `/api/members/${id}`;
         try {
             await axios.delete(url);
-            setMembers(dados.filter((member) => member.id !== id));
+            setMembers(members.filter((member) => member.id !== id));
+            handleShowPopup(`Membro deletado com sucesso`, 'success')
         } catch (error) {
-            console.error("error deleting member", error);
+
+            handleShowPopup(`${error}`, 'error')
         }
     }
+    const editMember = async (id) => {
+        const url = `/api/members/${id}`;
+        try {
+            await axios.put(url);
+            setMembers(members.filter((member) => member.id !== id));
+        } catch (error) {
+
+            handleShowPopup(`${error}`, 'error')
+        }
+    }
+
+    const handleShowPopup = (message, type) => {
+        setPopupMessage(message);
+        setPopupType(type);
+        setShowPopup(true);
+        setTimeout(() => {
+            setShowPopup(false);
+        }, 3000);
+    }
+
+    const handleNextPage = () => {
+        if (page > members.length / 3) {
+            if (members.length % 3 !== 0) {
+                return;
+            } else {
+                setPage(page + 1);
+                changePage(page);
+            }
+        }
+        setPage(page + 1);
+        changePage(page);
+    }
+
+    const handlePreviousPage = () => {
+        if (page <= 1) {
+            return;
+        }
+        setPage(page - 1);
+        changePage(page);
+    }
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(name, description, image, github, instagram);
-        try {
+if(members.data !== true){
             const response = await axios.post("/api/members", { name, description, image, github, instagram });
             console.log(response.data);
-            setMembers([...members, response.data.data]);
-            setName("");
-            setDescription("");
-            setImage("");
-            setGithub("");
-            setInstagram("");
-        } catch (error) {
-            console.error(error);
-        }
+            setMembers([...members, response.data.results]);
+            handleShowPopup(`Membro adicionado com sucesso`, 'success')
+} else {
+            const response = await axios.get("/api/members");
+            console.log(response.data.message);
+            setError(response.data.message);
+            handleShowPopup(`${errorMsg}`, 'error')
+}
     }
-
     //area de efeitos
     useEffect(() => {
-        async function getMembers() {
-            try {
-                const response = await axios.get("/api/members");
-                setMembers(response.data);
-            } catch (error) {
-                console.log(error);
-            }
+        const getMembers = async () => {
+            const response = await axios.get(`/api/members`);
+            setMembers(response.data.results);
         }
         getMembers();
-    }, [deleteMember, handleSubmit]);
+    }, [page, deleteMember, handleSubmit]);
 
 
     //area de retorno
@@ -63,49 +110,27 @@ export default function SobreNos() {
         <div className={style.bckg}>
             <Header />
 
-                <div className={style.container}>
-                    <h1 className={style.title}>Sobre Nós</h1>
-                    <p className={style.text}>Aqui você pode encontrar um pouco sobre nós, os integrantes do grupo!</p>
-                </div>
+            <div className={style.container}>
+                <h1 className={style.title}>Sobre Nós</h1>
+                <p className={style.text}>Aqui você pode encontrar um pouco sobre nós, os integrantes do grupo!</p>
+            </div>
 
-                <form onSubmit={handleSubmit} className={style.form}>
-                    <h3 className={style.form__title}>Adicionar Membro</h3>
-                    <div className={style.form__container}>
-                        <input
-                            type="text"
-                            placeholder="Nome"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Descrição"
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Imagem"
-                            value={image}
-                            onChange={(e) => setImage(e.target.value)}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Github"
-                            value={github}
-                            onChange={(e) => setGithub(e.target.value)}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Instagram"
-                            value={instagram}
-                            onChange={(e) => setInstagram(e.target.value)}
-                        />
-                        <button className={style.btn} type="submit" onClick={handleSubmit}>Adicionar</button>
-                        </div>
-                    </form>
+            <form onSubmit={handleSubmit} className={style.form}>
+                <InputMembers name={name} setName={setName} age={age} setAge={setAge} description={description} setDescription={setDescription} image={image} setImage={setImage} github={github} setGithub={setGithub} instagram={instagram} setInstagram={setInstagram} />
+                <button className={style.btn} type="submit" onClick={handleSubmit}>Adicionar</button>
+            </form>
 
-            <Members dados={members} onDelete={deleteMember} />
+            <Members dados={members} onDelete={deleteMember} onEdite={editMember}/>
+
+            <div className={style.container}>
+                <button className={style.btn} onClick={handlePreviousPage}>Anterior</button>
+                <button className={style.btn} onClick={handleNextPage}>Próxima</button>
+            </div>
+            {
+                showPopup ? (
+                    <PopupMessage message={popupMessage} type={popupType} /> // Certifique-se de que PopupMessage está sendo importado corretamente
+                ) : null
+            }
             <Footer className={style.footerfixed} />
         </div>
     )

@@ -6,7 +6,9 @@ import Header from "../components/header/Header";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-brands-svg-icons";
+
+
 export default function Page() {
     const router = useRouter();
     const [dados, setDados] = useState([]);
@@ -82,6 +84,9 @@ export default function Page() {
             </form>
             <Link href={"/questions/register"}>
                 <div className={styles.buttonAdd}>
+                    <button><FontAwesomeIcon icon={ faPlus } /></button>
+
+
                     <button><FontAwesomeIcon icon={faPlus} /></button>
                 </div>
             </Link>
@@ -107,7 +112,7 @@ export default function Page() {
                         }
                     </div>
                 ) : (
-                    <div className={styles.load}>
+                    <div>
                         <h1 className={styles.upload}>Carregando...</h1>
                     </div>
                 )
