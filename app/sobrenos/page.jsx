@@ -11,6 +11,7 @@ import InputMembers from '../components/inputmembers/InputMembers';
 export default function SobreNos() {
     //area de state
     const [members, setMembers] = useState('');
+    const [error, setError] = useState('');
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
     const [description, setDescription] = useState("");
@@ -20,6 +21,7 @@ export default function SobreNos() {
     const [showPopup, setShowPopup] = useState(false);
     const [popupMessage, setPopupMessage] = useState('');
     const [popupType, setPopupType] = useState('');
+    const [page, setPage] = useState(1);
 
     //area de funções
     const deleteMember = async (id) => {
@@ -32,6 +34,30 @@ export default function SobreNos() {
             handleShowPopup(`${error}`, 'error')
         }
     }
+
+    //area paginação
+    const fetchMembers = async () => {
+        try {
+            const response = await axios.get(`/api/members`);
+            setMembers(response.data.results);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    const handleNextPage = () => {
+        setPage(page + 1);
+        fetchMembers();
+    }
+
+    const handlePreviousPage = () => {
+        if (page > 1) {
+            setPage(page - 1);
+            fetchMembers();
+        }
+    }
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -48,21 +74,13 @@ export default function SobreNos() {
             handleShowPopup(`Membro adicionado com sucesso`, 'success')
         } catch (error) {
             console.error(error);
-            handleShowPopup(`${error}`, 'error')
+            handleShowPopup(`${members.data.error}`, 'error')
         }
     }
 
     //area de efeitos
     useEffect(() => {
-        async function getMembers() {
-            try {
-                const response = await axios.get("/api/members");
-                setMembers(response.data);
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        getMembers();
+        fetchMembers();
     }, [deleteMember, handleSubmit]);
 
     //area popUp
@@ -82,15 +100,15 @@ export default function SobreNos() {
             <Header />
 
 
-                <div className={style.container}>
-                    <h1 className={style.title}>Sobre Nós</h1>
-                    <p className={style.text}>Aqui você pode encontrar um pouco sobre nós, os integrantes do grupo!</p>
-                </div>
+            <div className={style.container}>
+                <h1 className={style.title}>Sobre Nós</h1>
+                <p className={style.text}>Aqui você pode encontrar um pouco sobre nós, os integrantes do grupo!</p>
+            </div>
 
 
             <form onSubmit={handleSubmit} className={style.form}>
-            <InputMembers name={name} setName={setName} age={age} setAge={setAge} description={description} setDescription={setDescription} image={image} setImage={setImage} github={github} setGithub={setGithub} instagram={instagram} setInstagram={setInstagram} />
-            <button className={style.btn} type="submit" onClick={handleSubmit}>Adicionar</button>
+                <InputMembers name={name} setName={setName} age={age} setAge={setAge} description={description} setDescription={setDescription} image={image} setImage={setImage} github={github} setGithub={setGithub} instagram={instagram} setInstagram={setInstagram} />
+                <button className={style.btn} type="submit" onClick={handleSubmit}>Adicionar</button>
             </form>
 
             <Members dados={members} onDelete={deleteMember} />
