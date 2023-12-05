@@ -5,22 +5,22 @@ import Footer from '../components/footer/Footer';
 import style from './contato.module.css'
 import React, { useState, useEffect } from 'react';
 
-
 // Criação do componente ContatoModule
 export default function ContatoModule() {
 
     // Definição do estado inicial do formulário
-    const [form, setForm] = useState({
+    const initialState = {
         nome: '',
         email: '',
         mensagem: '',
         data: '',
-    });
+    };
+
+    const [form, setForm] = useState(initialState);
 
     // Definição do estado para erros e popup
     const [errors, setErrors] = useState({});
     const [showPopup, setShowPopup] = useState(false);
-
 
     // Criação da função identificador para lidar com mudanças nos campos do formulário
     const identificador = (event) => {
@@ -37,11 +37,14 @@ export default function ContatoModule() {
         // Adição da validação do formulário na função enviar
         const validationErrors = validate(form);
 
-    // Atualização do estado de erros com os erros de validação
+        // Atualização do estado de erros com os erros de validação
         setErrors(validationErrors);
         if (Object.keys(validationErrors).length === 0) {
             setShowPopup(true);
             setTimeout(() => setShowPopup(false), 5000);
+
+            // Redefina o estado do formulário para o estado inicial após o envio
+            setForm(initialState);
         }
     };
 
@@ -66,6 +69,7 @@ export default function ContatoModule() {
         return errors;
     };
 
+    // Pagina de Contato
     return (
         <div className={style.background}>
             <Header />
