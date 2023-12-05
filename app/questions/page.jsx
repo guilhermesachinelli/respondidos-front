@@ -6,7 +6,7 @@ import Header from "../components/header/Header";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 export default function Page() {
     const router = useRouter();
     const [dados, setDados] = useState([]);
@@ -38,8 +38,7 @@ export default function Page() {
             <Header />
             <Link href={"/questions/register"}>
                 <div className={styles.buttonAdd}>
-                    <button><FontAwesomeIcon icon={faPlus} /></button>
-
+                    <button><FontAwesomeIcon icon={faPlus}/></button>
                 </div>
             </Link>
 
@@ -59,14 +58,14 @@ export default function Page() {
                                         <p>D - {questions.response4}</p>
                                     </div>
                                     <button onClick={() => deleteQuestion(questions.id)}>Deletar</button>
-                                   
+
                                     <button onClick={() => updateQuestion(questions.id)}>Editar</button>
                                 </div>
                             ))
                         }
                     </div>
                 ) : (
-                    <div>
+                    <div className={styles.load}>
                         <h1 className={styles.upload}>Carregando...</h1>
                     </div>
                 )
