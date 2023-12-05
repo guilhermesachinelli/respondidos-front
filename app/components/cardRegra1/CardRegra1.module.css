@@ -1,0 +1,39 @@
+.cardTexto {
+    width: 25%;
+    border-radius: 15px;
+    border-radius: 15px;
+    color: whitesmoke;
+    background-color: rgba(245, 245, 245, 0.108);
+    padding: 2rem;
+    text-align: left;
+    min-height: 30rem;
+    height: 30rem;
+    max-height: 30rem;
+}
+
+.cardTexto:hover {
+    transform: scale(1.03);
+    transition-duration: 1s;
+}
+
+.subTitulo {
+    font-family: Crima;
+    letter-spacing: 2.5px;
+    font-size: 4.5vh;
+    margin-bottom: 4vh;
+}
+
+.introTexto {
+    font-family: analogist;
+    letter-spacing: 1px;
+    font-size: 2.5vh;
+}
+
+@media screen and (max-width: 600px){
+
+    
+    .cardTexto{
+        width: 80%;
+    }
+
+}

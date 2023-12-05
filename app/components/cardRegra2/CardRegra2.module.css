@@ -1,0 +1,44 @@
+.quizInfosTitulo {
+    font-family: Crima;
+    font-size: 4.5vh;
+    letter-spacing: 2.5px;
+    margin-bottom: 4vh;
+}
+
+.quizInfoLista {
+    font-family: analogist;
+    letter-spacing: 1px;
+    font-size: 2.5vh;
+}
+
+.cardTextoResp{
+    width: 25%;
+    border-radius: 15px;
+    border-radius: 15px;
+    color: whitesmoke;
+    background-color: rgba(245, 245, 245, 0.108);
+    padding: 2rem;
+    text-align: left;
+    min-height: 30rem;
+    height: 30rem;
+    max-height: 30rem;
+}
+
+@media screen and (max-width: 600px){
+
+    .quizInfoLista{
+        font-size: 1.5vh;
+    }
+
+    .cardTextoResp{
+        width: 80%;
+        min-height: 48rem;
+        font-size: 5vh;
+    }
+
+    .quizInfoLista{
+        font-size: 1.4rem;
+        text-align: justify;
+    }
+
+}
