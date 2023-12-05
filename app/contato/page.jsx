@@ -92,7 +92,7 @@ export default function ContatoModule() {
                 </label>
                 <label className={style.idc}>
                     Mensagem:
-                    <textarea name="mensagem" onChange={identificador} value={form.mensagem} className={style.idco} />
+                    <textarea name="mensagem" style={{overflow: 'auto'}} onChange={identificador} value={form.mensagem} className={style.idco} />
                     {errors.mensagem && <p>{errors.mensagem}</p>}
                 </label>
                 <label className={style.idc}>
