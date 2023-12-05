@@ -45,6 +45,7 @@ export default function ContatoModule() {
         }
     };
 
+    // Criação da função validate para validar o formulário
     const validate = (form) => {
         let errors = {};
 
