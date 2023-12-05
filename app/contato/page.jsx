@@ -8,7 +8,7 @@ import React, { useState, useEffect } from 'react';
 
 // Criação do componente ContatoModule
 export default function ContatoModule() {
-    
+
     // Definição do estado inicial do formulário
     const [form, setForm] = useState({
         nome: '',
@@ -17,6 +17,7 @@ export default function ContatoModule() {
         data: '',
     });
 
+ // Definição do estado para erros e popup
     const [errors, setErrors] = useState({});
     const [showPopup, setShowPopup] = useState(false); 
 
