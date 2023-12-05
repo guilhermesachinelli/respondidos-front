@@ -4,10 +4,13 @@ import { NextResponse } from "next/server";
 
 const url = "http://localhost:5000/question";
 
-export async function GET() {
-  try {
-    const response = await axios.get(url);
+export async function GET(request) {
+  const {searchParams} = new URL(request.url);
+  const category = searchParams.get("category");
+  const difficulty = searchParams.get("difficulty");
 
+  try {
+    const response = await axios.get(url + "?category=" + category + "&difficulty=" + difficulty );
     return NextResponse.json(response.data);
   } catch (error) {
     console.log("[ORDER_GET]", error);
