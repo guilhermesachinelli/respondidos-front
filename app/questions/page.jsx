@@ -6,6 +6,7 @@ import Header from "../components/header/Header";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-brands-svg-icons";
 
 export default function Page() {
     const router = useRouter();
@@ -38,7 +39,7 @@ export default function Page() {
             <Header />
             <Link href={"/questions/register"}>
                 <div className={styles.buttonAdd}>
-                    <button><FontAwesomeIcon icon={faPlus} /></button>
+                    <button><FontAwesomeIcon icon={ faPlus } /></button>
 
                 </div>
             </Link>
