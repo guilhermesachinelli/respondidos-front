@@ -5,6 +5,8 @@ import axios from "axios";
 import Header from '../components/header/Header';
 import Members from '../components/members/Members';
 import Footer from '../components/footer/Footer';
+import InputMembers from '../components/inputmembers/InputMembers';
+import PopupMessage from '../components/popup/PopUp';
 
 export default function SobreNos() {
     //area de state
@@ -12,6 +14,7 @@ export default function SobreNos() {
     const [errorMsg, setError] = useState('');
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
+    const [age, setAge] = useState("");
     const [image, setImage] = useState("");
     const [github, setGithub] = useState("");
     const [instagram, setInstagram] = useState("");
@@ -20,26 +23,27 @@ export default function SobreNos() {
     const [popupType, setPopupType] = useState('');
     const [page, setPage] = useState(1);
 
+    console.log(members);
+
     //area de funções
     const deleteMember = async (id) => {
         const url = `/api/members/${id}`;
         try {
             await axios.delete(url);
-            setMembers(dados.filter((member) => member.id !== id));
+            setMembers(members.filter((member) => member.id !== id));
         } catch (error) {
-            
+
             handleShowPopup(`${error}`, 'error')
         }
     }
 
-    //area paginação
-    const fetchMembers = async () => {
-        try {
-            const response = await axios.get(`/api/members?page=${page}`);
-            setMembers(response.data.results);
-        } catch (error) {
-            console.error(error);
-        }
+    const handleShowPopup = (message, type) => {
+        setPopupMessage(message);
+        setPopupType(type);
+        setShowPopup(true);
+        setTimeout(() => {
+            setShowPopup(false);
+        }, 3000);
     }
 
     const handleNextPage = () => {
@@ -50,10 +54,7 @@ export default function SobreNos() {
     }
 
     const handlePreviousPage = () => {
-        if (page < 1) {
-            return;
-        }
-        setPage(page - 1);
+        return 
     }
 
 
@@ -64,19 +65,23 @@ export default function SobreNos() {
         try {
             const response = await axios.post("/api/members", { name, description, image, github, instagram });
             console.log(response.data);
-            setMembers([...members, response.data.data]);
+            setMembers([...members, response.data.results]);
             handleShowPopup(`Membro adicionado com sucesso`, 'success')
         } catch (error) {
             const response = await axios.get("/api/members/errors");
             console.log(response.data.message);
             setError(response.data.message);
             handleShowPopup(`${errorMsg}`, 'error')
-    }
+        }
 
-    //area de efeitos
-    useEffect(() => {
-        fetchMembers();
-    }, [page, deleteMember, handleSubmit]);
+        //area de efeitos
+        useEffect(() => {
+            const getMembers = async () => {
+                const response = await axios.get(`/api/members`);
+                setMembers(response.data.results);
+            }
+            getMembers();
+        }, [page, deleteMember, handleSubmit])};
 
 
     //area de retorno
@@ -89,7 +94,6 @@ export default function SobreNos() {
                 <h1 className={style.title}>Sobre Nós</h1>
                 <p className={style.text}>Aqui você pode encontrar um pouco sobre nós, os integrantes do grupo!</p>
             </div>
-
 
             <form onSubmit={handleSubmit} className={style.form}>
                 <InputMembers name={name} setName={setName} age={age} setAge={setAge} description={description} setDescription={setDescription} image={image} setImage={setImage} github={github} setGithub={setGithub} instagram={instagram} setInstagram={setInstagram} />
@@ -104,7 +108,7 @@ export default function SobreNos() {
             </div>
             {
                 showPopup ? (
-                    <PopupMessage message={popupMessage} type={popupType} />
+                    <PopupMessage message={popupMessage} type={popupType} /> // Certifique-se de que PopupMessage está sendo importado corretamente
                 ) : null
             }
             <Footer className={style.footerfixed} />
