@@ -19,8 +19,10 @@ export default function ContatoModule() {
 
  // Definição do estado para erros e popup
     const [errors, setErrors] = useState({});
-    const [showPopup, setShowPopup] = useState(false); 
+    const [showPopup, setShowPopup] = useState(false);
 
+
+    // Criação da função identificador para lidar com mudanças nos campos do formulário
     const identificador = (event) => {
         setForm({
             ...form,
