@@ -30,8 +30,8 @@ const Members = ({ dados, onDelete }) => {
                             <li><a href={member.instagram}><i><FontAwesomeIcon icon={faInstagram} /></i></a></li>
                         </ul>
                         <ul className={style.social_icons}>
-                        <FontAwesomeIcon icon={faPenToSquare} onClick={() => onDelete(member.id)}/>
-                        <FontAwesomeIcon icon={faTrash} />
+                        <button  onClick={() => onDelete(member.id)}><FontAwesomeIcon icon={faPenToSquare}/></button>
+                        <button><FontAwesomeIcon icon={faTrash} /></button>
                         </ul>
                     </div>
 

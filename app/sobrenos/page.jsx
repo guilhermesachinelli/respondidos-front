@@ -71,13 +71,13 @@ export default function SobreNos() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(name, description, image, github, instagram);
-if(members.data.errors !== true){
+if(members.data !== true){
             const response = await axios.post("/api/members", { name, description, image, github, instagram });
             console.log(response.data);
             setMembers([...members, response.data.results]);
             handleShowPopup(`Membro adicionado com sucesso`, 'success')
 } else {
-            const response = await axios.get("/api/members/errors");
+            const response = await axios.get("/api/members");
             console.log(response.data.message);
             setError(response.data.message);
             handleShowPopup(`${errorMsg}`, 'error')
