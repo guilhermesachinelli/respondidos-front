@@ -40,7 +40,6 @@ export default function Page() {
             <Link href={"/questions/register"}>
                 <div className={styles.buttonAdd}>
                     <button><FontAwesomeIcon icon={faPlus} /></button>
-
                 </div>
             </Link>
 
