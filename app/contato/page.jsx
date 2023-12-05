@@ -1,3 +1,4 @@
+// Importação de módulos e componentes necessários
 'use client';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
