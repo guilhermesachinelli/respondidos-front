@@ -84,16 +84,25 @@
 
 
   .title {
-    font-size: 8vh;
+    font-size: 7vh;
   }
 
   .subtitle {
-    font-size: 5vh;
-    padding: 2vh;
+    font-size: 3.5vh;
+    padding: 3vh;
+    width: 100%;
+    text-align: center;
   }
 
   .txt{
-    font-size: 3vh;
+    font-size: 2.5vh;
+    padding: 2vh;
+    margin-top: 0;
+  }
+
+  .sub_container{
+    min-width: 90%;
+    margin-bottom: 1.8rem;
   }
 
 }
