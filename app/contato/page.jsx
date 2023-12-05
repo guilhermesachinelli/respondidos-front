@@ -36,6 +36,8 @@ export default function ContatoModule() {
 
         // Adição da validação do formulário na função enviar
         const validationErrors = validate(form);
+
+    // Atualização do estado de erros com os erros de validação
         setErrors(validationErrors);
         if (Object.keys(validationErrors).length === 0) {
             setShowPopup(true);
