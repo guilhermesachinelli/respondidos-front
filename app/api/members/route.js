@@ -2,7 +2,16 @@ import axios from "axios";
 
 import { NextResponse } from "next/server";
 
-const url = `http://10.88.204.18:5005/Members?page=1`;
+
+
+let url = `http://172.30.208.1:5005/Members?page=1`;
+
+export const changePage = (page) => {
+
+  url = `http://172.30.208.1:5005/Members?page=${page}`;
+  console.log(url);
+}
+
 
 export async function GET() {
   try {
