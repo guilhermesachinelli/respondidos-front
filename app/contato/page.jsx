@@ -17,7 +17,7 @@ export default function ContatoModule() {
         data: '',
     });
 
- // Definição do estado para erros e popup
+    // Definição do estado para erros e popup
     const [errors, setErrors] = useState({});
     const [showPopup, setShowPopup] = useState(false);
 
@@ -30,13 +30,16 @@ export default function ContatoModule() {
         });
     };
 
+    // Início da criação da função enviar para lidar com o envio do formulário
     const enviar = (event) => {
         event.preventDefault();
+
+        // Adição da validação do formulário na função enviar
         const validationErrors = validate(form);
         setErrors(validationErrors);
-        if (Object.keys(validationErrors).length === 0) { 
-            setShowPopup(true); 
-            setTimeout(() => setShowPopup(false), 5000); 
+        if (Object.keys(validationErrors).length === 0) {
+            setShowPopup(true);
+            setTimeout(() => setShowPopup(false), 5000);
         }
     };
 
@@ -63,12 +66,12 @@ export default function ContatoModule() {
     return (
         <div className={style.background}>
             <Header />
-    
+
             <div className={style.sbf}>
                 <h1 className={style.tsb}>Contato</h1>
                 <p className={style.sbt}>Aqui você podera enviar o seu Feedback</p>
             </div>
-    
+
             <form onSubmit={enviar} className={style.bdss}>
                 <label className={style.idc}>
                     Nome:
