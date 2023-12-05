@@ -9,14 +9,15 @@ import Bomb from '../bomb/Bomb';
 
 
 const Members = ({ dados, onDelete }) => {
+
     return(
     <div className={style.container}>
     {
         dados ? (
-            dados.data.length === 0 ? (
+            dados.length === 0 ? (
                 <Bomb text="Não há membros cadastrados"/>
             ) : (
-            dados.data.map((member) => (
+            dados.map((member) => (
                     <div className={style.card}>
                         <img className={style.card__image} src={`${member.image}`} />
                         <p className={style.card__name}>{member.name}</p>

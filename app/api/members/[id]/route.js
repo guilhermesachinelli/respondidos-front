@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { NextResponse } from "next/server";
 
-const url = "http://localhost:5005/members";
+const url = `http://localhost:5005/members`;
 
 export async function DELETE(request,{ params } ) {
   const {id} = params;
