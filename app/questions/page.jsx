@@ -5,8 +5,6 @@ import styles from "./questions.module.css";
 import Header from "../components/header/Header";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-brands-svg-icons";
 
 
 export default function Page() {
@@ -15,38 +13,30 @@ export default function Page() {
     const [selectCategory, setSelectCategory] = useState('');
     const [selectDifficulty, setSelectDifficulty] = useState('');
 
-    const fetchCategory = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await axios.get(`/api/questions?category=${selectCategory}&difficulty=${selectDifficulty}`);
-            setDados(response.data);
-        }
-        catch (error) {
-            console.error(error);
-        }
-    }
     useEffect(() => {
-        async function fetchQuestions() {
+        async function fetchData() {
             try {
                 let queryParams = '';
                 if (selectCategory) {
-                    queryParams += `category=${selectCategory}`;
+                    queryParams += `category=${selectCategory}&`;
                 }
                 if (selectDifficulty) {
                     queryParams += `difficulty=${selectDifficulty}`;
                 }
-                if(queryParams.length > 0){
-                    queryParams = queryParams.slice(0, -1);
-                }
+
                 const response = await axios.get(`/api/questions?${queryParams}`);
-                console.log(response.data)
-                setDados(response.data.data);
+                setDados(response.data.questions);
             } catch (error) {
                 console.error(error);
             }
         }
-        fetchQuestions();
+        fetchData();
+
+
     }, [selectCategory, selectDifficulty]);
+
+    console.log({ selectCategory }, { selectDifficulty });
+
     const deleteQuestion = async (id) => {
         const url = `/api/questions/${id}`;
         try {
@@ -59,35 +49,29 @@ export default function Page() {
     const updateQuestion = async (id) => {
         router.push(`/questions/${id}`);
     }
+
+
+
     return (
         <div className={styles.all}>
             <Header />
-            <form onSubmit={fetchCategory}>
-                <select onChange={(e) => setSelectCategory(e.target.value)}>
-                    <option value="">Selecione uma categoria</option>
-                    <option value="Geografia">Geografia</option>
-                    <option value="História">História</option>
-                    <option value="Ciências">Ciências</option>
-                    <option value="Cultura">Cultura</option>
-                    <option value="Esportes">Esportes</option>
-                </select>
-                <button type="submit">Buscar</button>
-            </form>
-            <form onSubmit={fetchCategory}>
-                <select onChange={(e) => setSelectDifficulty(e.target.value)}>
-                    <option value="">Selecione uma dificuldade</option>
-                    <option value="Fácil">Fácil</option>
-                    <option value="Médio">Médio</option>
-                    <option value="Difícil">Difícil</option>
-                </select>
-                <button type="submit">Buscar</button>
-            </form>
+            <select onChange={(e) => setSelectCategory(e.target.value)}>
+                <option value="">Selecione uma categoria</option>
+                <option value="Geografia">Geografia</option>
+                <option value="História">História</option>
+                <option value="Ciências">Ciências</option>
+                <option value="Cultura">Cultura</option>
+                <option value="Esportes">Esportes</option>
+            </select>
+            <select onChange={(e) => setSelectDifficulty(e.target.value)}>
+                <option value="">Selecione uma dificuldade</option>
+                <option value="Fácil">Fácil</option>
+                <option value="Médio">Médio</option>
+                <option value="Difícil">Difícil</option>
+            </select>
             <Link href={"/questions/register"}>
                 <div className={styles.buttonAdd}>
-                    <button><FontAwesomeIcon icon={ faPlus } /></button>
-
-
-                    <button><FontAwesomeIcon icon={faPlus} /></button>
+                    <button>Criar Pergunta</button>
                 </div>
             </Link>
             {
