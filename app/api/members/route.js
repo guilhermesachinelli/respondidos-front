@@ -27,9 +27,11 @@ export async function GET(request) {
 
 export async function POST(request) {
   const params = await request.json();
+  console.log("params", params);
 
   try {
     const response = await axios.post(url, params);
+    console.log("response", response);
 
     return NextResponse.json(response.data);
   } catch (error) {

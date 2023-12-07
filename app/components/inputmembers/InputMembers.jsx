@@ -13,6 +13,8 @@ const InputMembers = ({name, age, description, image, github, instagram, setName
                     />
                     <input
                         type="number"
+                        min={1}
+                        max={100}
                         placeholder="Idade"
                         value={age}
                         onChange={(e) => setAge(e.target.value)}
