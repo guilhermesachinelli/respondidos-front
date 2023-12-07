@@ -276,5 +276,26 @@
     
     .titulo{
         display: flex;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        flex-wrap: nowrap;
+        margin-left: 25px;
     }
+
+    .tsb {
+        font-family: Crima;
+        letter-spacing: 3px;
+        font-size: 2rem;
+        color: whitesmoke;
+    }
+    
+    .tsb2 {
+        font-family: Crima;
+        letter-spacing: 3px;
+        font-size: 2rem;
+        color: whitesmoke;
+    }
+
+
 }

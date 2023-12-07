@@ -76,7 +76,6 @@ export default function ContatoModule() {
                     <h1 className={styles.tsb}>Entre</h1>
                     <h1 className={styles.tsb2}>em contato</h1>
                     </div>
-
                     <hr className={styles.linha}></hr>
                     
                     <p className={styles.sbt}>Aqui você poderá enviar o seu Feedback sincero !</p>
