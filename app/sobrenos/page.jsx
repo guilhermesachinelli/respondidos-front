@@ -11,7 +11,6 @@ import PopupMessage from '../components/popup/PopUp';
 export default function SobreNos() {
     //area de state
     const [members, setMembers] = useState('');
-    const [errorMsg, setError] = useState('');
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [age, setAge] = useState("");
@@ -78,16 +77,26 @@ export default function SobreNos() {
         console.log(name, description, image, github, instagram);
             const response = await axios.post("/api/members", { name, description, image, github, instagram });
             setMembers([...members, response.data.data]);
+            setName("");
+            setDescription("");
+            setImage("");
+            setGithub("");
+            setInstagram("");
             handleShowPopup(`Membro adicionado com sucesso`, 'success')
     }
     //area de efeitos
     useEffect(() => {
         const getMembers = async () => {
-            const response = await axios.get(`/api/members?page=${page}`);
-            setMembers(response.data.results);
-        }
+            try {
+                const response = await axios.get(`/api/members?page=${page}`);
+                setMembers(response.data.results);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+    
         getMembers();
-    }, [page, deleteMember, handleSubmit]);
+    }, [page]);
 
 
     //area de retorno
@@ -114,7 +123,7 @@ export default function SobreNos() {
             </div>
             {
                 showPopup ? (
-                    <PopupMessage message={popupMessage} type={popupType} /> // Certifique-se de que PopupMessage está sendo importado corretamente
+                    <PopupMessage message={popupMessage} type={popupType} />
                 ) : null
             }
             <Footer className={style.footerfixed} />
