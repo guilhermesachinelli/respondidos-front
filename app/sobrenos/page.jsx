@@ -24,6 +24,7 @@ export default function SobreNos() {
     const [popupType, setPopupType] = useState('');
     const [page, setPage] = useState(1);
     const [deleteNumber, setDeleteNumber] = useState(1);
+    const [createNumber, setCreateNumber] = useState(1);
 
     //area de funções
     const deleteMember = async (id) => {
@@ -72,7 +73,8 @@ export default function SobreNos() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await axios.post("/api/members", { name, age, description, image, github, instagram });
-        setMembers([...members, response.data.results]);
+        setMembers([...members, response.data]);
+        setCreateNumber(createNumber + 1);
         setName("");
         setAge("");
         setDescription("");
@@ -93,7 +95,7 @@ export default function SobreNos() {
         };
 
         getMembers();
-    }, [page, deleteNumber]);
+    }, [page, deleteNumber, createNumber]);
 
 
     //area de retorno
@@ -109,7 +111,7 @@ export default function SobreNos() {
 
             <form onSubmit={handleSubmit} className={style.form}>
                 <InputMembers name={name} setName={setName} age={age} setAge={setAge} description={description} setDescription={setDescription} image={image} setImage={setImage} github={github} setGithub={setGithub} instagram={instagram} setInstagram={setInstagram} />
-                <button className={style.btn} type="submit" onClick={handleSubmit}>Adicionar</button>
+                <button className={style.btn} type="submit" >Adicionar</button>
             </form>
 
             <Members dados={members} onDelete={deleteMember} onEdite={updateQuestion} />

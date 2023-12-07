@@ -1,5 +1,3 @@
-'use client'
-import React from 'react';
 import style from './Members.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram, faGithub } from '@fortawesome/free-brands-svg-icons'
@@ -9,6 +7,9 @@ import Bomb from '../bomb/Bomb';
 
 
 const Members = ({ dados, onDelete, onEdite}) => {
+
+    console.log("Componente");
+    console.log(dados);
 
     return(
     <div className={style.container}>

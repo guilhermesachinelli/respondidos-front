@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 
 
-const url = process.env.base_url + `/Members`;
+const url = process.env.BASE_URL + `/Members`;
 let pageUrl = url + `?page=1`;
 
 
