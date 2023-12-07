@@ -31,8 +31,8 @@
     }
 
     .cardTextoResp{
-        width: 80%;
-        min-height: 48rem;
+        width: 90%;
+        min-height: 50rem;
         font-size: 5vh;
     }
 
@@ -40,5 +40,7 @@
         font-size: 1.4rem;
         text-align: justify;
     }
+
+
 
 }

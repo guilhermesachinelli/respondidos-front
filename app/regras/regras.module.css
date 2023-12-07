@@ -22,7 +22,7 @@
     justify-content: center;
     align-items: flex-start;
     gap: 5rem;
-    min-height: 9rem;
+    min-height: 8rem;
     margin-top: 3rem;
 }
 
@@ -32,6 +32,7 @@
     .cardsAll{
         display: flex;
         flex-direction: column;
+        max-height: 80%;
     }
 
     .tudo{
