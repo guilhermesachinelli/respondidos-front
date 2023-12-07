@@ -21,6 +21,7 @@ export default function SobreNos() {
     const [popupMessage, setPopupMessage] = useState('');
     const [popupType, setPopupType] = useState('');
     const [page, setPage] = useState(1);
+    const [deleteNumber, setDeleteNumber] = useState(1);
 
     //area de funções
     const deleteMember = async (id) => {
@@ -28,20 +29,26 @@ export default function SobreNos() {
         try {
             await axios.delete(url);
             setMembers(members.filter((member) => member.id !== id));
+            setDeleteNumber(deleteNumber + 1);
             handleShowPopup(`Membro deletado com sucesso`, 'success')
+            
         } catch (error) {
-
             handleShowPopup(`${error}`, 'error')
         }
     }
     const editMember = async (id) => {
         const url = `/api/members/${id}`;
         try {
-            await axios.put(url);
-            setMembers(members.filter((member) => member.id !== id));
+            const response = await axios.put(url);
+            setMembers(members.filter((member) => 
+            setName(response.data.name),
+            setDescription(response.data.description),
+            setImage(response.data.image),
+            setGithub(response.data.github),
+            setInstagram(response.data.instagram)
+            ));
         } catch (error) {
-
-            handleShowPopup(`${error}`, 'error')
+            console.error(error);
         }
     }
 
@@ -96,7 +103,7 @@ export default function SobreNos() {
         };
     
         getMembers();
-    }, [page]);
+    }, [page, deleteNumber]);
 
 
     //area de retorno

@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { NextResponse } from "next/server";
 
-const url = `http://10.88.204.18:5005/members`;
+const url = process.env.base_url + `/Members`;
 
 export async function DELETE(request,{ params } ) {
   const {id} = params;
@@ -17,8 +17,9 @@ export async function DELETE(request,{ params } ) {
 
 export async function PUT(request,{ params } ) {
   const {id} = params;
+  const  body = await request.json();
   try{
-      const response = await axios.put(`${url}/${id}`, request.body);
+      const response = await axios.put(`${url}/${id}`, body);
       return NextResponse.json(response.data);
   }catch(error){
       console.log("[ORDER_UPDATE]", error);
