@@ -11,6 +11,23 @@
     justify-content: center;
     align-items: center;
 }
+.buttonAdd select{
+    border: 2px solid #cea2e4;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.201);
+    color: white;
+    font-family: analogist;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    margin: 1rem;
+}
+.buttonAdd option{
+    background-color: #058cd7;
+    border: none;
+}
 .buttonAdd button{
     border: 2px solid #cea2e4;
     outline: none;
@@ -22,6 +39,7 @@
     padding: 1rem 2rem;
     border-radius: 1rem;
     cursor: pointer;
+    margin: 1rem;
 }
 .question{
     display: flex;
@@ -105,4 +123,40 @@
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
+}
+
+@media screen and (max-width: 600px){
+    .cardQuesion{
+        width: 90%;
+        max-height: 100vh;
+        margin-top: 3rem;
+        margin-bottom: 0;
+    }
+    .cardQuesion h1 {
+        font-size: 1.3rem;
+    }
+    .cardQuesion h2 {
+        font-size: 1.2rem;
+    }
+    .cardQuesion h3 {
+        font-size: 1rem;
+    }
+    .options p {
+        font-size: 1.2rem;
+    }
+    .options {
+        width: 100%;
+    }
+    .buttonAdd {
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+    .buttonAdd select {
+        width: 90%;
+        margin: 1rem;
+    }
+    .buttonAdd button {
+        width:50vw;
+        margin: 1rem;
+    }
 }

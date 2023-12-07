@@ -55,7 +55,11 @@ export default function Page() {
     return (
         <div className={styles.all}>
             <Header />
-            <select onChange={(e) => setSelectCategory(e.target.value)}>
+                <div className={styles.buttonAdd}>
+                <Link href={"/questions/register"}>
+                    <button>Criar Pergunta</button>
+                    </Link>
+                    <select onChange={(e) => setSelectCategory(e.target.value)}>
                 <option value="">Selecione uma categoria</option>
                 <option value="Geografia">Geografia</option>
                 <option value="História">História</option>
@@ -69,11 +73,7 @@ export default function Page() {
                 <option value="Médio">Médio</option>
                 <option value="Difícil">Difícil</option>
             </select>
-            <Link href={"/questions/register"}>
-                <div className={styles.buttonAdd}>
-                    <button>Criar Pergunta</button>
                 </div>
-            </Link>
             {
                 dados.length ? (
                     <div className={styles.question}>
@@ -89,8 +89,10 @@ export default function Page() {
                                         <p>C - {questions.response3}</p>
                                         <p>D - {questions.response4}</p>
                                     </div>
-                                    <button onClick={() => deleteQuestion(questions.id)}>Deletar</button>
-                                    <button onClick={() => updateQuestion(questions.id)}>Editar</button>
+                                    <div className={styles.buttonAdd}>
+                                        <button onClick={() => deleteQuestion(questions.id)}>Deletar</button>
+                                        <button onClick={() => updateQuestion(questions.id)}>Editar</button>
+                                    </div>
                                 </div>
                             ))
                         }
