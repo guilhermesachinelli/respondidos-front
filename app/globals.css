@@ -31,3 +31,8 @@
     background: linear-gradient(#058cd7, #fb7da8, #ffc567);
     border-radius: 10px;
   }
+
+
+  hr{
+    background: red
+  }
