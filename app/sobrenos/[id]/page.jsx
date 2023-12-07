@@ -4,6 +4,8 @@ import styles from "./page.module.css"
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import Footer from "@/app/components/footer/Footer"
+import Header from "@/app/components/header/Header"
+import Bomb from "@/app/components/bomb/Bomb"
 export default function updateMember({ params }) {
     const { id } = params;
     const router = useRouter();
@@ -46,15 +48,20 @@ export default function updateMember({ params }) {
                 router.push("/sobrenos");
             });
     };
+
+    const returnToPage = () => {
+        router.push("/sobrenos");
+    }
     return (
         <div className={styles.bckg}>
+            <Header />
             {dados ? (
                 <div className={styles.form}>
                     <div>
                         <h1 className={styles.form__title}>Edite o Membro!</h1>
                     </div>
-                    <div className={styles.divInputs}>
-                        <form onSubmit={editMember}>
+                    <div className={styles.form__container}>
+                        <form>
                             <input
                                 type="name"
                                 placeholder="Nome"
@@ -94,12 +101,14 @@ export default function updateMember({ params }) {
                                 value={instagram}
                                 onChange={(e) => setInstagram(e.target.value)}
                             />
-                            <button className={styles.divBotao}>Adicionar</button>
+
                         </form>
+                        <button className={styles.btn} onClick={editMember}>Adicionar</button>
+                            <button className={styles.btn} onClick={returnToPage}>Voltar</button>
                     </div>
                 </div>
             ) : (
-                <div>Carregando Membro Para Edição...</div>
+                <Bomb text={"Carregando membro para edição"} />
             )}
             <Footer className={styles.footerfixed} />
         </div>
