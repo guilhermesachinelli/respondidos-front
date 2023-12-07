@@ -81,7 +81,7 @@
 
 .sbt {
     font-family: analogist;
-    font-size: 5rem;
+    font-size: 1.0em;
     color: whitesmoke;
     margin-top: 1rem;
 }
@@ -175,13 +175,7 @@
     min-width: 30%;
 }
 
-.contato-content {
-    max-height: calc(100vh - 60px);
-    overflow-y: auto;
-}
-
-
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 450px) {
     .all {
         display: inline;
         text-align: center;
