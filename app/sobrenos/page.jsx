@@ -11,7 +11,6 @@ import PopupMessage from '../components/popup/PopUp';
 export default function SobreNos() {
     //area de state
     const [members, setMembers] = useState('');
-    const [errorMsg, setError] = useState('');
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [age, setAge] = useState("");
@@ -22,6 +21,7 @@ export default function SobreNos() {
     const [popupMessage, setPopupMessage] = useState('');
     const [popupType, setPopupType] = useState('');
     const [page, setPage] = useState(1);
+    const [deleteNumber, setDeleteNumber] = useState(1);
 
     //area de funções
     const deleteMember = async (id) => {
@@ -29,20 +29,26 @@ export default function SobreNos() {
         try {
             await axios.delete(url);
             setMembers(members.filter((member) => member.id !== id));
+            setDeleteNumber(deleteNumber + 1);
             handleShowPopup(`Membro deletado com sucesso`, 'success')
+            
         } catch (error) {
-
             handleShowPopup(`${error}`, 'error')
         }
     }
     const editMember = async (id) => {
         const url = `/api/members/${id}`;
         try {
-            await axios.put(url);
-            setMembers(members.filter((member) => member.id !== id));
+            const response = await axios.put(url);
+            setMembers(members.filter((member) => 
+            setName(response.data.name),
+            setDescription(response.data.description),
+            setImage(response.data.image),
+            setGithub(response.data.github),
+            setInstagram(response.data.instagram)
+            ));
         } catch (error) {
-
-            handleShowPopup(`${error}`, 'error')
+            console.error(error);
         }
     }
 
@@ -78,16 +84,26 @@ export default function SobreNos() {
         console.log(name, description, image, github, instagram);
             const response = await axios.post("/api/members", { name, description, image, github, instagram });
             setMembers([...members, response.data.data]);
+            setName("");
+            setDescription("");
+            setImage("");
+            setGithub("");
+            setInstagram("");
             handleShowPopup(`Membro adicionado com sucesso`, 'success')
     }
     //area de efeitos
     useEffect(() => {
         const getMembers = async () => {
-            const response = await axios.get(`/api/members?page=${page}`);
-            setMembers(response.data.results);
-        }
+            try {
+                const response = await axios.get(`/api/members?page=${page}`);
+                setMembers(response.data.results);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+    
         getMembers();
-    }, [page, deleteMember, handleSubmit]);
+    }, [page, deleteNumber]);
 
 
     //area de retorno
@@ -114,7 +130,7 @@ export default function SobreNos() {
             </div>
             {
                 showPopup ? (
-                    <PopupMessage message={popupMessage} type={popupType} /> // Certifique-se de que PopupMessage está sendo importado corretamente
+                    <PopupMessage message={popupMessage} type={popupType} />
                 ) : null
             }
             <Footer className={style.footerfixed} />
