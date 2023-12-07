@@ -3,6 +3,7 @@ import axios from "axios"
 import styles from "./page.module.css"
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
+import Footer from "@/app/components/footer/Footer"
 export default function updateMember({ params }) {
     const { id } = params;
     const router = useRouter();
@@ -46,27 +47,61 @@ export default function updateMember({ params }) {
             });
     };
     return (
-        <div div>
+        <div className={styles.bckg}>
             {dados ? (
-                <div className={styles.Card}>
-                    <div className={styles.divTitulo}>
-                        <h1 className={styles.divTitulo}>Edite o Membro!</h1>
+                <div className={styles.form}>
+                    <div>
+                        <h1 className={styles.form__title}>Edite o Membro!</h1>
                     </div>
                     <div className={styles.divInputs}>
                         <form onSubmit={editMember}>
-                            <input className={styles.input1} type='text' placeholder=' Digite o nome!' value={name} onChange={(e) => setName(e.target.value)}></input>
-                            <input className={styles.input1} type='text' placeholder=' Digite a idade!' value={age} onChange={(e) => setAge(e.target.value)}></input>
-                            <input className={styles.input1} type='text' placeholder=' Digite a descrição!' value={description} onChange={(e) => setDescription(e.target.value)}></input>
-                            <input className={styles.input1} type='text' placeholder=' Digite a imagem!' value={image} onChange={(e) => setImage(e.target.value)}></input>
-                            <input className={styles.input1} type='text' placeholder=' Digite o github!' value={github} onChange={(e) => setGithub(e.target.value)}></input>
-                            <input className={styles.input1} type='text' placeholder=' Digite o instagram!' value={instagram} onChange={(e) => setInstagram(e.target.value)}></input>
+                            <input
+                                type="name"
+                                placeholder="Nome"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                            />
+                            <input
+                                type="number"
+                                min={1}
+                                max={100}
+                                placeholder="Idade"
+                                value={age}
+                                onChange={(e) => setAge(e.target.value)}
+                            />
+                            <input
+                                type="text"
+                                placeholder="Descrição"
+                                maxLength={100}
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
+                            />
+                            <input
+                                type="text"
+                                placeholder="Imagem"
+                                value={image}
+                                onChange={(e) => setImage(e.target.value)}
+                            />
+                            <input
+                                type="text"
+                                placeholder="Github"
+                                value={github}
+                                onChange={(e) => setGithub(e.target.value)}
+                            />
+                            <input
+                                type="text"
+                                placeholder="Instagram"
+                                value={instagram}
+                                onChange={(e) => setInstagram(e.target.value)}
+                            />
                             <button className={styles.divBotao}>Adicionar</button>
                         </form>
                     </div>
                 </div>
             ) : (
-                <div>Carregando...</div>
+                <div>Carregando Membro Para Edição...</div>
             )}
+            <Footer className={styles.footerfixed} />
         </div>
     )
 }
