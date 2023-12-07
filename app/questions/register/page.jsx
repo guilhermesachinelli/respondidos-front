@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Register() {
     const [dados, setDados] = useState([]);
     const [question, setQuestion] = useState("");
-    const [category, setCategory] = useState("");
+    const [category , setCategory] = useState('');
     const [difficulty, setDifficulty] = useState("");
     const [response1, setResponse1] = useState("");
     const [response2, setResponse2] = useState("");
@@ -17,7 +17,7 @@ export default function Register() {
         e.preventDefault();
         try {
             const response = await axios.post("/api/questions", { question, category, difficulty, response1, response2, response3, response4, correct });
-            setDados([...dados, response.data.data]);
+            setDados([...dados, response.data.questions]);
             setQuestion("");
             setCategory("");
             setDifficulty("");
@@ -34,7 +34,7 @@ export default function Register() {
         async function fetchQuestions() {
             try {
                 const response = await axios.get("/api/questions");
-                setDados(response.data.data);
+                setDados(response.data.questions);
             } catch (error) {
                 console.error(error);
             }
@@ -49,7 +49,14 @@ export default function Register() {
             <div className={styles.divInputs}>
                 <form onSubmit={handleSubmit}>
                     <input className={styles.input1} type='text' placeholder=' Digite sua pergunta!' value={question} onChange={(e) => setQuestion(e.target.value)}></input>
-                    <input className={styles.input1} type='text' placeholder=' Digite a categoria!' value={category} onChange={(e) => setCategory(e.target.value)}></input>
+                    <select onChange={(e) => setCategory(e.target.value)}>
+                        <option value="">Selecione uma categoria</option>
+                        <option value="Geografia">Geografia</option>
+                        <option value="História">História</option>
+                        <option value="Ciências">Ciências</option>
+                        <option value="Cultura">Cultura</option>
+                        <option value="Esportes">Esportes</option>
+                    </select>
                     <input className={styles.input1} type='text' placeholder=' Digite a dificuldade!' value={difficulty} onChange={(e) => setDifficulty(e.target.value)}></input>
                     <input className={styles.input1} type='text' placeholder=' Primeira alternativa!' value={response1} onChange={(e) => setResponse1(e.target.value)}></input>
                     <input className={styles.input1} type='text' placeholder=' Segunda alternativa!' value={response2} onChange={(e) => setResponse2(e.target.value)}></input>
@@ -59,10 +66,9 @@ export default function Register() {
                     <button className={styles.divBotao}>Adicionar</button>
                 </form>
                 <Link href={"/questions"}>
-                <button className={styles.divBotao}>Voltar</button>
-            </Link>
+                    <button className={styles.divBotao}>Voltar</button>
+                </Link>
             </div>
-            
         </div>
     )
 }
