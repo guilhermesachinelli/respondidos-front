@@ -3,7 +3,7 @@ import axios from "axios"
 import styles from "./page.module.css"
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
-export default function updateQuestion({ params }) {
+export default function updateMember({ params }) {
     const { id } = params;
     const router = useRouter();
     const [dados, setDados] = useState()
@@ -19,13 +19,13 @@ export default function updateQuestion({ params }) {
     useEffect(() => {
         async function fetchMember() {
             const response = await axios.get(`/api/members/${id}`)
-            setDados(response.data.data)
-            setName(response.data.results.name)
-            setAge(response.data.results.age)
-            setDescription(response.data.results.description)
-            setImage(response.data.results.image)
-            setGithub(response.data.results.github)
-            setInstagram(response.data.results.instagram)
+            setDados(response.data)
+            setName(response.data.name)
+            setAge(response.data.age)
+            setDescription(response.data.description)
+            setImage(response.data.image)
+            setGithub(response.data.github)
+            setInstagram(response.data.instagram)
         }
         fetchMember()
     }, [])

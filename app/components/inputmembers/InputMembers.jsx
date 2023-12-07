@@ -22,6 +22,7 @@ const InputMembers = ({name, age, description, image, github, instagram, setName
                     <input
                         type="text"
                         placeholder="Descrição"
+                        maxLength={100}
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                     />
