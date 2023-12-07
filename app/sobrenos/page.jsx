@@ -1,6 +1,7 @@
 'use client';
 import style from './sobrenos.module.css'
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import axios from "axios";
 import Header from '../components/header/Header';
 import Members from '../components/members/Members';
@@ -10,6 +11,7 @@ import PopupMessage from '../components/popup/PopUp';
 
 export default function SobreNos() {
     //area de state
+    const router = useRouter();
     const [members, setMembers] = useState('');
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
@@ -31,27 +33,14 @@ export default function SobreNos() {
             setMembers(members.filter((member) => member.id !== id));
             setDeleteNumber(deleteNumber + 1);
             handleShowPopup(`Membro deletado com sucesso`, 'success')
-            
+
         } catch (error) {
             handleShowPopup(`${error}`, 'error')
         }
     }
-    const editMember = async (id) => {
-        const url = `/api/members/${id}`;
-        try {
-            const response = await axios.put(url);
-            setMembers(members.filter((member) => 
-            setName(response.data.name),
-            setDescription(response.data.description),
-            setImage(response.data.image),
-            setGithub(response.data.github),
-            setInstagram(response.data.instagram)
-            ));
-        } catch (error) {
-            console.error(error);
-        }
+    const updateQuestion = async (id) => {
+        router.push(`/sobrenos/${id}`);
     }
-
     const handleShowPopup = (message, type) => {
         setPopupMessage(message);
         setPopupType(type);
@@ -62,11 +51,12 @@ export default function SobreNos() {
     }
 
     const handleNextPage = () => {
-        if (page > members.length / 3) {
-            return;
-        }
-        setPage(page + 1);
-        return 
+            setPage(page + 1);
+            if(members.length === 0){
+                setPage(page - 1);
+                return
+            }
+
     }
 
     const handlePreviousPage = () => {
@@ -74,22 +64,22 @@ export default function SobreNos() {
             return;
         }
         setPage(page - 1);
-        return 
+        return
     }
 
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(name, description, image, github, instagram);
-            const response = await axios.post("/api/members", { name, description, image, github, instagram });
-            setMembers([...members, response.data.data]);
-            setName("");
-            setDescription("");
-            setImage("");
-            setGithub("");
-            setInstagram("");
-            handleShowPopup(`Membro adicionado com sucesso`, 'success')
+        const response = await axios.post("/api/members", { name, age, description, image, github, instagram });
+        setMembers([...members, response.data.results]);
+        setName("");
+        setAge("");
+        setDescription("");
+        setImage("");
+        setGithub("");
+        setInstagram("");
+        handleShowPopup(`Membro adicionado com sucesso`, 'success')
     }
     //area de efeitos
     useEffect(() => {
@@ -101,7 +91,7 @@ export default function SobreNos() {
                 console.error(error);
             }
         };
-    
+
         getMembers();
     }, [page, deleteNumber]);
 
@@ -122,7 +112,7 @@ export default function SobreNos() {
                 <button className={style.btn} type="submit" onClick={handleSubmit}>Adicionar</button>
             </form>
 
-            <Members dados={members} onDelete={deleteMember} onEdite={editMember} />
+            <Members dados={members} onDelete={deleteMember} onEdite={updateQuestion} />
 
             <div className={style.container}>
                 <button className={style.btn} onClick={handlePreviousPage}>Anterior</button>
