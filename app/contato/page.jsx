@@ -2,7 +2,7 @@
 'use client';
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
-import style from './contato.module.css'
+import styles from './contato.module.css'
 import React, { useState, useEffect } from 'react';
 
 // Criação do componente ContatoModule
@@ -13,7 +13,6 @@ export default function ContatoModule() {
         nome: '',
         email: '',
         mensagem: '',
-        data: '',
     };
 
     const [form, setForm] = useState(initialState);
@@ -53,7 +52,7 @@ export default function ContatoModule() {
         let errors = {};
 
         if (!form.nome.trim()) {
-            errors.nome = "Por favor, escreva/digite seu nome!";
+            errors.nome = "Por favor, digite seu nome!";
         }
         if (!form.email) {
             errors.email = "Email é obrigatório!";
@@ -63,48 +62,50 @@ export default function ContatoModule() {
         if (!form.mensagem) {
             errors.mensagem = "Por favor, digite uma mensagem!";
         }
-        if (!form.data) {
-            errors.data = "Por favor, digite a data!";
-        }
         return errors;
     };
 
     // Pagina de Contato
     return (
-        <div className={style.background}>
+        <div className={styles.background}>
             <Header />
 
-            <div className={style.sbf}>
-                <h1 className={style.tsb}>Contato</h1>
-                <p className={style.sbt}>Aqui você poderá enviar o seu Feedback</p>
+            <div className={styles.all}>
+                <div className={styles.sbf}>
+                    <div className={styles.titulo}>
+                    <h1 className={styles.tsb}>Entre</h1>
+                    <h1 className={styles.tsb2}>em contato</h1>
+                    </div>
+
+                    <hr className={styles.linha}></hr>
+                    
+                    <p className={styles.sbt}>Aqui você poderá enviar o seu Feedback sincero !</p>
+                </div>
+
+                <form onSubmit={enviar} className={styles.bdss}>
+                    <label className={styles.idc}>
+                        <input type="text" placeholder="Nome" name="nome" onChange={identificador} value={form.nome} className={styles.idco} />
+                        {errors.nome &&
+                            <p className={styles.verif}>{errors.nome}</p>}
+                    </label>
+                    <label className={styles.idc}>
+
+                        <input type="text" placeholder="Email" name="email" onChange={identificador} value={form.email} className={styles.idco} />
+                        {errors.email &&
+                            <p className={styles.verif}>{errors.email}</p>}
+                    </label>
+                    <label className={styles.idc}>
+
+                        <input type="text" placeholder="Mensagem" name="mensagem" onChange={identificador} value={form.mensagem} className={styles.idco} />
+                        {errors.mensagem &&
+                            <p className={styles.verif}>{errors.mensagem}</p>}
+                    </label>
+
+                    <button type="submit" className={styles.bds}>Enviar</button>
+                    {showPopup && <div className={styles.verif2}>A mensagem foi enviada. Agradecemos o seu feedback!.</div>}
+                </form>
             </div>
-
-            <form onSubmit={enviar} className={style.bdss}>
-                <label className={style.idc}>
-                    Nome:
-                    <input type="text" name="nome" onChange={identificador} value={form.nome} className={style.idco} />
-                    {errors.nome && <p>{errors.nome}</p>}
-                </label>
-                <label className={style.idc}>
-                    Email:
-                    <input type="text" name="email" onChange={identificador} value={form.email} className={style.idco} />
-                    {errors.email && <p>{errors.email}</p>}
-                </label>
-                <label className={style.idc}>
-                    Mensagem:
-                    <textarea name="mensagem" style={{overflow: 'auto'}} onChange={identificador} value={form.mensagem} className={style.idco} />
-                    {errors.mensagem && <p>{errors.mensagem}</p>}
-                </label>
-                <label className={style.idc}>
-                    Data:
-                    <input type="date" name="data" onChange={identificador} value={form.data} className={style.idco} />
-                    {errors.data && <p>{errors.data}</p>}
-                </label>
-                <button type="submit" className={style.bds}>Enviar</button>
-                {showPopup && <div className={style.sbf}>A mensagem foi enviada. Agradecemos o seu feedback!.</div>}
-            </form>
-
-            <Footer className={style.fofix} />
+            <Footer />
         </div>
     );
 }
