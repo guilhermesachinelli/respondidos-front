@@ -16,6 +16,23 @@
     width: 50%;
     height: 80%;
 }
+.divInputs select {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.201);
+    font-family: analogist;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    padding: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+    border: none;
+    color: white;
+}
+.divInputs option {
+    background-color: #058cd7;
+    border: none;
+}
 .divInputs input {
     outline: none;
     background-color: rgba(255, 255, 255, 0.201);
