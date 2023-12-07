@@ -3,7 +3,6 @@
     width: 100%;
     background-image: url(../../public/bck.png);
     text-align: center;
-
 }
 
 .all {
@@ -81,7 +80,7 @@
 
 .sbt {
     font-family: analogist;
-    font-size: 5rem;
+    font-size: 1.0em;
     color: whitesmoke;
     margin-top: 1rem;
 }
@@ -146,7 +145,6 @@
     border-radius: 1rem;
     font-size: 1.5em;
     color: whitesmoke;
-
 }
 
 .input1 {
@@ -163,7 +161,6 @@
     color: whitesmoke;
 }
 
-
 .bdss {
     border-radius: 1rem;
     background-color: #f2f2f247;
@@ -175,13 +172,7 @@
     min-width: 30%;
 }
 
-.contato-content {
-    max-height: calc(100vh - 60px);
-    overflow-y: auto;
-}
-
-
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 450px) {
     .all {
         display: inline;
         text-align: center;
@@ -296,6 +287,4 @@
         font-size: 2rem;
         color: whitesmoke;
     }
-
-
 }
