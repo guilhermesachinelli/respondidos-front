@@ -3,7 +3,6 @@
     width: 100%;
     background-image: url(../../public/bck.png);
     text-align: center;
-
 }
 
 .all {
@@ -146,7 +145,6 @@
     border-radius: 1rem;
     font-size: 1.5em;
     color: whitesmoke;
-
 }
 
 .input1 {
@@ -162,7 +160,6 @@
     padding-left: 20px;
     color: whitesmoke;
 }
-
 
 .bdss {
     border-radius: 1rem;
@@ -290,6 +287,4 @@
         font-size: 2rem;
         color: whitesmoke;
     }
-
-
 }

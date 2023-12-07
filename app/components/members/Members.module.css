@@ -225,6 +225,8 @@
 .card__desc {
   margin: 1em;
   text-align: center;
+  word-break: break-word;
+
 }
 
 

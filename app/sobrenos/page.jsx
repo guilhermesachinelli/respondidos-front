@@ -39,9 +39,11 @@ export default function SobreNos() {
             handleShowPopup(`${error}`, 'error')
         }
     }
-    const updateQuestion = async (id) => {
+
+    const updateMember = async (id) => {
         router.push(`/sobrenos/${id}`);
     }
+
     const handleShowPopup = (message, type) => {
         setPopupMessage(message);
         setPopupType(type);
@@ -114,7 +116,7 @@ export default function SobreNos() {
                 <button className={style.btn} type="submit" >Adicionar</button>
             </form>
 
-            <Members dados={members} onDelete={deleteMember} onEdite={updateQuestion} />
+            <Members dados={members} onDelete={deleteMember} onEdite={updateMember} />
 
             <div className={style.container}>
                 <button className={style.btn} onClick={handlePreviousPage}>Anterior</button>

@@ -28,6 +28,7 @@
   font-size: 2em;
   font-family: Crima;
   -webkit-text-fill-color: white;
+  letter-spacing: 0.1em;
 
 }
 
@@ -48,6 +49,7 @@
     font-size: 2em;
     font-family: Crima;
     -webkit-text-fill-color: white;
+    letter-spacing: 0.1em;
 
   }
 }
