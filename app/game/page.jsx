@@ -4,7 +4,6 @@ import styles from "./game.module.css"
 import PopupMessage from '../components/popup/PopUp';
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Footer from "../components/footer/Footer";
 export default function Page() {
     const [randomQuestion, setRandomQuestion] = useState('');
     const [dados, setDados] = useState([]);
@@ -112,7 +111,6 @@ if(randomQuestion.difficulty == "Difícil"){
                     ) : null
                 }
             </div>
-            <Footer />
         </div>
     )
 }
