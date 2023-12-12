@@ -34,30 +34,36 @@ export default function Page() {
         setRandomQuestion(dados[randomNumber]);
     }
     const correctResponse = (resposta) => {
-        if(resposta == randomQuestion.correct){
+        let countCorrect = 0;
+        let countError = 0;
+        if (resposta == randomQuestion.correct) {
             handleShowPopup("Resposta correta!", 'success');
-        }else{
-            handleShowPopup("Resposta incorreta", 'error' )
+            countCorrect++;
+        } else {
+            handleShowPopup("Resposta incorreta", 'error')
+            countError++;
         }
     }
     return (
-        <div className={styles.container}>
+        <div className={styles.all}>
             <Header />
-        <button onClick={random}>Randomizar</button>
-        <div className={styles.question}>
-            <h1>{randomQuestion.question}</h1>
-            <h2>{randomQuestion.category}</h2>
-            <h3>{randomQuestion.difficulty}</h3>
-            <button onClick={() => correctResponse(randomQuestion.response1)}>{randomQuestion.response1}</button>
-            <button onClick={() => correctResponse(randomQuestion.response2)}>{randomQuestion.response2}</button>
-            <button onClick={() => correctResponse(randomQuestion.response3)}>{randomQuestion.response3}</button>
-            <button onClick={() => correctResponse(randomQuestion.response4)}>{randomQuestion.response4}</button>
+            <div className={styles.container}>
+                <button onClick={random} className={styles.buttonAdd}>Gerar Pergunta</button>
+                <div className={styles.question}>
+                    <h1>{randomQuestion.question}</h1>
+                    <h2>{randomQuestion.category}</h2>
+                    <h3>{randomQuestion.difficulty}</h3>
+                    <button onClick={() => correctResponse(randomQuestion.response1)}>{randomQuestion.response1}</button>
+                    <button onClick={() => correctResponse(randomQuestion.response2)}>{randomQuestion.response2}</button>
+                    <button onClick={() => correctResponse(randomQuestion.response3)}>{randomQuestion.response3}</button>
+                    <button onClick={() => correctResponse(randomQuestion.response4)}>{randomQuestion.response4}</button>
+                </div>
+                {
+                    showPopup ? (
+                        <PopupMessage message={popupMessage} type={popupType} />
+                    ) : null
+                }
             </div>
-            {
-                showPopup ? (
-                    <PopupMessage message={popupMessage} type={popupType} />
-                ) : null
-            }
         </div>
     )
 }

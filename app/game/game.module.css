@@ -1,7 +1,54 @@
-.container{
+.all{
     background-image: url(../../public/bck.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     height: 100vh;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.question{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 60%;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.201);
+    border-radius: 40px;
+    margin-top: 25px;
+    color: white;
+    margin-bottom: 30px;
+}
+.question button{
+    border: 2px solid #cea2e4;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.201);
+    color: white;
+    font-family: analogist;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    margin: 1rem;
+    width: 100%;
+}
+.buttonAdd{
+    border: 2px solid #cea2e4;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.201);
+    color: white;
+    font-family: analogist;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    margin: 1rem;
 }

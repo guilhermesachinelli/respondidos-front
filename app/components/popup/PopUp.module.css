@@ -18,20 +18,20 @@
 }
 
 .error{
-    background: linear-gradient(45deg,#058cd7, #fb7da8, #ffc567);
+    background-color: rgba(255, 255, 255, 0.201);
     border: 3px solid rgb(215, 19, 19);
     color:  linear-gradient(45deg, #fb7da8, #c648c8 ) !important;
     z-index: 9999;
 }
 
 .success{
-    background: linear-gradient(45deg,#058cd7, #fb7da8, #ffc567);
+    background-color: rgba(255, 255, 255, 0.201);
     border: 3px solid rgb(26, 213, 45);
     color: linear-gradient(45deg, #fb7da8, #c648c8 ) !important;
     z-index: 9999;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 450px) {
     .mainDiv {
         width: 90%;
     }

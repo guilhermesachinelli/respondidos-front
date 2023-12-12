@@ -13,7 +13,7 @@ export default function Home() {
           <h1 className={styles.title}>Respondidos</h1>
         </div>
         <div className={styles.hold}>
-        <Subcontainer subtitle={"Jogar modo clássico"} txt={"Teste seus conhecimentos gerais! As regras são simples: leia a pergunta, acerte a resposta e tente não perder."}></Subcontainer>
+        <Subcontainer subtitle={"Jogar"} txt={"Teste seus conhecimentos gerais! As regras são simples: leia a pergunta, acerte a resposta e tente não perder."}></Subcontainer>
         </div>
       </div>
       <Footer />
