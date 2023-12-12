@@ -49,6 +49,30 @@ export default function updateMember({ params }) {
 
     const editMember = (e) => {
         e.preventDefault();
+        if (!name || !age || !description || !image || !github || !instagram) {
+            handleShowPopup(`Preencha todos os campos`, 'error')
+            return
+        }
+        if (name.length < 3) {
+            handleShowPopup(`Nome deve conter pelo menos 3 caracteres`, 'error')
+            return;
+        }
+        if (isNaN(age)) {
+            handleShowPopup(`Idade inválida`, 'error')
+            return;
+        }
+        if (age < 15 || age > 100) {
+            handleShowPopup(`Idade inválida`, 'error')
+            return;
+        }
+        if (description.length < 10 || description.length > 100) {
+            handleShowPopup(`Descrição deve conter entre 10 e 100 caracteres`, 'error')
+            return;
+        }
+        if (image.match(/\.(jpeg|jpg|gif|png)$/) == null) {
+            handleShowPopup(`URL da imagem inválida`, 'error')
+            return;
+        }
         axios.put(`/api/members/${id}`, {
             name: name,
             age: age,
