@@ -1,6 +1,6 @@
 import axios from "axios";
 import { NextResponse } from "next/server";
-const url = process.env.BASE_URL;
+const url = process.env.BASE_URL + '/Question';
 export async function DELETE(request,{ params } ){
     const {id} = params;
     try{
