@@ -18,14 +18,14 @@
 }
 
 .error{
-    background-color: #222222;
+    background-image: url(../../../public/bck.png);
     border: 3px solid rgb(215, 19, 19);
     color:  linear-gradient(45deg, #fb7da8, #c648c8 ) !important;
     z-index: 9999;
 }
 
 .success{
-    background-color: #222222;
+    background-image: url(../../../public/bck.png);
     border: 3px solid rgb(26, 213, 45);
     color: linear-gradient(45deg, #fb7da8, #c648c8 ) !important;
     z-index: 9999;

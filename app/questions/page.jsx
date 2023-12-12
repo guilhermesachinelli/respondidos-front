@@ -5,6 +5,8 @@ import styles from "./questions.module.css";
 import Header from "../components/header/Header";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Bomb from "../components/bomb/Bomb";
+import Footer from "../components/footer/Footer";
 
 
 export default function Page() {
@@ -50,7 +52,7 @@ export default function Page() {
         router.push(`/questions/${id}`);
     }
 
-
+    console.log(dados);
 
     return (
         <div className={styles.all}>
@@ -99,10 +101,11 @@ export default function Page() {
                     </div>
                 ) : (
                     <div>
-                        <h1 className={styles.upload}>Carregando...</h1>
+                        <Bomb text={"Esperando as perguntas..."} />
                     </div>
                 )
             }
+            <Footer />
         </div>
     )
 }

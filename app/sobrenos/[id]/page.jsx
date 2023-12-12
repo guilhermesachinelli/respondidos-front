@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation"
 import Footer from "@/app/components/footer/Footer"
 import Header from "@/app/components/header/Header"
 import Bomb from "@/app/components/bomb/Bomb"
+import PopupMessage from "@/app/components/popup/PopUp"
 export default function updateMember({ params }) {
     const { id } = params;
     const router = useRouter();
@@ -17,6 +18,9 @@ export default function updateMember({ params }) {
     const [github, setGithub] = useState("")
     const [instagram, setInstagram] = useState("")
     const [showPopup, setShowPopup] = useState(false);
+    const [popupMessage, setPopupMessage] = useState('');
+    const [popupType, setPopupType] = useState('');
+
 
     console.log(dados)
 
