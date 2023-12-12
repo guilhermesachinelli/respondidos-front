@@ -10,7 +10,6 @@
     width: 100%;
 }
 .form {
-    margin-top: 1rem;
     margin-bottom: 1rem;
     border-radius: 1rem;
     background-color: transparent;
@@ -83,6 +82,28 @@
     padding-left: 20px;
     color: whitesmoke;
 }
+
+.btn {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: rgba(240, 248, 255, 0.187);
+    font-family: Crima;
+    letter-spacing: 2px;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 4vh;
+    border: none;
+}
+
+.btn:hover {
+    transform: scale(1.03);
+    transition-duration: 1s;
+  }
+
 @media screen and (max-width: 600px) {
     .form__title{
         font-size: 1.5em;
