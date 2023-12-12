@@ -58,7 +58,7 @@
     transition-duration: 1s;
   }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 450px) {
     .title {
         font-size: 2em;
     }
@@ -72,7 +72,7 @@
     }
 
     .form__container{
-        width: 85%;
+        width: 90%;
     }
 
     .form__container input {
@@ -87,5 +87,8 @@
         padding: 2vh;
         text-align: center;
         font-size: 3.5vh;
+    }
+    .holdForm{
+        width: 100%;
     }
 }

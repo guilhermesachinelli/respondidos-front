@@ -2,6 +2,7 @@ import styles from "./page.module.css"
 import Header from "./components/header/Header"
 import Footer from "./components/footer/Footer"
 import Subcontainer from "./components/subcontainer/Subcontainer"
+import Link from "next/link"
 
 export default function Home() {
   return (
@@ -13,7 +14,6 @@ export default function Home() {
         </div>
         <div className={styles.hold}>
         <Subcontainer subtitle={"Jogar modo clássico"} txt={"Teste seus conhecimentos gerais! As regras são simples: leia a pergunta, acerte a resposta e tente não perder."}></Subcontainer>
-        <Subcontainer subtitle={"Jogar modo personalizado"} txt={"Quer agitar sua noite de jogos? Personalize as perguntas e jogue com seus amigos!"}></Subcontainer>
         </div>
       </div>
       <Footer />

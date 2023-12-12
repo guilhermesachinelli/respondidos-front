@@ -34,9 +34,6 @@ export default function Page() {
 
 
     }, [selectCategory, selectDifficulty]);
-
-    console.log({ selectCategory }, { selectDifficulty });
-
     const deleteQuestion = async (id) => {
         const url = `/api/questions/${id}`;
         try {
