@@ -16,6 +16,7 @@ export default function updateMember({ params }) {
     const [image, setImage] = useState("")
     const [github, setGithub] = useState("")
     const [instagram, setInstagram] = useState("")
+    const [showPopup, setShowPopup] = useState(false);
 
     console.log(dados)
 
@@ -33,6 +34,15 @@ export default function updateMember({ params }) {
         fetchMember()
     }, [])
 
+    const handleShowPopup = (message, type) => {
+        setPopupMessage(message);
+        setPopupType(type);
+        setShowPopup(true);
+        setTimeout(() => {
+            setShowPopup(false);
+        }, 3000);
+    }
+
     const editMember = (e) => {
         e.preventDefault();
         axios.put(`/api/members/${id}`, {
@@ -42,9 +52,11 @@ export default function updateMember({ params }) {
             image: image,
             github: github,
             instagram: instagram
-        })
+        }
+        )
             .then((response) => {
                 console.log(response);
+                handleShowPopup(`Membro editado com sucesso`, 'success')
                 router.push("/sobrenos");
             });
     };
@@ -110,6 +122,11 @@ export default function updateMember({ params }) {
             ) : (
                 <Bomb text={"Carregando membro para edição"} />
             )}
+{
+                showPopup ? (
+                    <PopupMessage message={popupMessage} type={popupType} />
+                ) : null
+            }
             <Footer className={styles.footerfixed} />
         </div>
     )
