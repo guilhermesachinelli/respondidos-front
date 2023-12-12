@@ -16,7 +16,6 @@ export default function Regras() {
                     topico3={"● Uma vez que a resposta é selecionada, não é possível realizar alterações."}
                     topico4={"● Cada resposta correta contribui para a pontuação total do participante!"}
                     topico5={"● O objetivo é acumular a maior pontuação possível ao longo do quiz."}>
-
                 </CardRegra2>
                 <CardRegra2 subtitle={"Desejo criar o meu próprio quiz."}
                     topico1={"● Insira quatro opções de resposta, identificando uma como correta e as restantes como incorretas."}
@@ -24,7 +23,6 @@ export default function Regras() {
                     topico3={"● Mantenha as perguntas e respostas concisas para melhor compreensão."}
                     topico4={"● Garanta que as perguntas sejam formuladas de maneira clara e objetiva."}
                     topico5={"● Evite ambiguidades nas opções de resposta para não confundir os participantes."}>
-
                 </CardRegra2>
             </div>
             <Footer />
