@@ -52,3 +52,15 @@
     cursor: pointer;
     margin: 1rem;
 }
+
+@media screen and (max-width: 600px){
+    .question{
+        width: 90%;
+    }
+    .question{
+        font-size: 15px;
+    }
+    .all{
+        height: 110vh;
+    }
+}
