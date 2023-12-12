@@ -92,7 +92,6 @@ if(randomQuestion.difficulty == "Difícil"){
         <div className={styles.all}>
             <Header />
             <div className={styles.container}>
-                <button onClick={random} className={styles.buttonAdd}>Gerar Pergunta</button>
                 <h1 className={styles.points}>Pontos: {points}</h1>
                 {
                     randomQuestion ? (
