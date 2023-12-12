@@ -74,6 +74,30 @@ export default function SobreNos() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!name || !age || !description || !image || !github || !instagram) {
+            handleShowPopup(`Preencha todos os campos`, 'error')
+            return;
+        }
+        if (name.length < 3) {
+            handleShowPopup(`Nome deve conter pelo menos 3 caracteres`, 'error')
+            return;
+        }
+        if (isNaN(age)) {
+            handleShowPopup(`Idade inválida`, 'error')
+            return;
+        }
+        if (age < 15 || age > 100) {
+            handleShowPopup(`Idade inválida`, 'error')
+            return;
+        }
+        if (description.length < 10 || description.length > 100) {
+            handleShowPopup(`Descrição deve conter entre 10 e 100 caracteres`, 'error')
+            return;
+        }
+        if (image.match(/\.(jpeg|jpg|gif|png)$/) == null) {
+            handleShowPopup(`URL da imagem inválida`, 'error')
+            return;
+        }
         const response = await axios.post("/api/members", { name, age, description, image, github, instagram });
         setMembers([...members, response.data]);
         setCreateNumber(createNumber + 1);
@@ -112,8 +136,21 @@ export default function SobreNos() {
             </div>
 
             <form onSubmit={handleSubmit} className={style.form}>
-                <InputMembers name={name} setName={setName} age={age} setAge={setAge} description={description} setDescription={setDescription} image={image} setImage={setImage} github={github} setGithub={setGithub} instagram={instagram} setInstagram={setInstagram} />
+                <InputMembers 
+                name={name} 
+                setName={setName} 
+                age={age} 
+                setAge={setAge} 
+                description={description} 
+                setDescription={setDescription} 
+                image={image} setImage={setImage} 
+                github={github} 
+                setGithub={setGithub} 
+                instagram={instagram} 
+                setInstagram={setInstagram} />
+                <div className={style.container}>
                 <button className={style.btn} type="submit" >Adicionar</button>
+                </div>
             </form>
 
             <Members dados={members} onDelete={deleteMember} onEdite={updateMember} />
