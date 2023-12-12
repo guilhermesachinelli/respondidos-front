@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { NextResponse } from "next/server";
 
-const url = process.env.BASE_URL + `/Question`;
+const url = "http://localhost:5000/question";
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
